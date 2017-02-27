@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mood of the month</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top container-fluid" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Mood of the month</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle navlink" data-toggle="dropdown" href="#">
+                        <i class="fa fa-gear fa-fw"></i> Gérer les MOTM <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="add_member.html"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
+                        </li>
+                        <li><a href="edit_motm.html"><i class="fa fa-calendar fa-fw"></i> Modifier le template</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="page-wrapper" class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Panneau d'administration</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">46</div>
+                                    <div class="huge-label">Membres inscrits</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="add_member.html">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ajouter un membre</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-smile-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">3</div>
+                                    <div class="huge-label">Moods terminés</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="edit_motm.html">
+                            <div class="panel-footer">
+                                <span class="pull-left">Modifier le template</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tachometer fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">Dashboard</div>
+                                    <div class="huge-label">Voir & Exporter</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="edit_motm.html">
+                            <div class="panel-footer">
+                                <span class="pull-left">Voir le dashboard</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-user fa-fw"></i> Gestion des membres
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nom</th>
+                                                    <th>Email</th>
+                                                    <th>Birthdate</th>
+                                                    <th class="text-right">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               <tr>
+                                                   <td>Lortola</td>
+                                                   <td>lortola@e-biz.fr</td>
+                                                   <td>10/02/1988</td>
+                                                   <td  class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>Alebel</td>
+                                                   <td>alebel@e-biz.fr</td>
+                                                   <td>11/07/1991</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>Kbottero</td>
+                                                   <td>kbottero@e-biz.fr</td>
+                                                   <td>20/12/1978</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>rlarroque</td>
+                                                   <td>rlarroque@e-biz.fr</td>
+                                                   <td>18/03/1992</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>hdelabatte</td>
+                                                   <td>hdelabatte@e-biz.fr</td>
+                                                   <td>10/02/1916</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>gnostrenoff</td>
+                                                   <td>gnostrenoff@e-biz.fr</td>
+                                                   <td>04/10/1991</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>hbernardi</td>
+                                                   <td>hbernardi@e-biz.fr</td>
+                                                   <td>13/04/1992</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="text-center">
+                                            <ul class="pagination">
+                                                <li><a href="#">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-calendar fa-fw"></i> Codes reviews programmées
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Code review 1</td>
+                                    <td>Promo Février</td>
+                                    <td class="text-right"><span class="text-muted small">24/02/2017</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Code review 2</td>
+                                    <td>Promo Février</td>
+                                    <td class="text-right"><span class="text-muted small">05/03/2017</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Code review 1</td>
+                                    <td>Promo Mars</td>
+                                    <td class="text-right"><span class="text-muted small">10/03/2017</span></td>
+                                </tr>
+                            </table>
+                            <a href="#" class="btn btn-default btn-block">Programmer une code review</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-users fa-fw"></i> Gestion des promotions
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-users fa-fw"></i> Promo Février
+                                    <span class="pull-right text-muted small"><em>8 membres</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-users fa-fw"></i> Promo Mars
+                                    <span class="pull-right text-muted small"><em>6 membres</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-users fa-fw"></i> Promo Avril
+                                    <span class="pull-right text-muted small"><em>0 membre</em>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">Créer une nouvelle promotion</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row text-center">
+                <img src="../img/ebusiness.png" class="logo" alt=""> &bullet; 2017
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
