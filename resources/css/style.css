@@ -17,6 +17,14 @@ body {
       height: 90px; }
   body input {
     border-radius: 0px !important; }
+  body .description {
+    font-style: italic;
+    color: #666;
+    font-size: 1em; }
+    body .description ul {
+      padding: 10px; }
+    body .description li {
+      margin-left: 10px; }
   body .navbar {
     height: 50px; }
     body .navbar ul.navbar-top-links {
@@ -103,9 +111,9 @@ body {
         body #stats .details .mood .progress-bar-container .progress {
           background-color: rgba(255, 255, 255, 0.05) !important; }
         body #stats .details .mood .progress-bar-container .progress-bar-midsuccess {
-          background-color: #b6ff00 !important; }
+          background-color: #8cd116 !important; }
         body #stats .details .mood .progress-bar-container .progress-bar-neutral {
-          background-color: #FFF600 !important; }
+          background-color: #e5d716 !important; }
         body #stats .details .mood .progress-bar-container .progress-bar-success {
           background-color: #3fcf19 !important; }
   body #dashboard {
@@ -159,9 +167,9 @@ body {
           body #dashboard .details .mood .progress-bar-container .progress {
             background-color: rgba(255, 255, 255, 0.05) !important; }
           body #dashboard .details .mood .progress-bar-container .progress-bar-midsuccess {
-            background-color: #b6ff00 !important; }
+            background-color: #8cd116 !important; }
           body #dashboard .details .mood .progress-bar-container .progress-bar-neutral {
-            background-color: #FFF600 !important; }
+            background-color: #e5d716 !important; }
           body #dashboard .details .mood .progress-bar-container .progress-bar-success {
             background-color: #3fcf19 !important; }
     body #dashboard .global {

@@ -26,6 +26,18 @@ body {
     border-radius: 0px !important;
   }
 
+  .description {
+    font-style: italic;
+    color: #666;
+    font-size: 1em;
+    ul {
+      padding: 10px;
+    }
+    li {
+      margin-left: 10px;
+    }
+  }
+
   .navbar {
     height: 50px;
     ul.navbar-top-links {
@@ -114,7 +126,7 @@ body {
       }
     }
   }
-  
+
   #stats {
     .note {
       text-align: right;
@@ -157,11 +169,11 @@ body {
             background-color: rgba(255,255,255, .05) !important;
           }
           .progress-bar-midsuccess {
-            background-color: #b6ff00 !important;
+            background-color: #8cd116 !important;
           }
 
           .progress-bar-neutral {
-            background-color: #FFF600 !important;
+            background-color: #e5d716 !important;
           }
 
           .progress-bar-success {
@@ -231,7 +243,7 @@ body {
           flex: 8 1 0px;
           align-self: center;
           padding: 0 10px;
-          
+
           .desc {
             font-size: 1.3em;
             color: #FFFFFF;
@@ -241,11 +253,11 @@ body {
             background-color: rgba(255,255,255, .05) !important;
           }
           .progress-bar-midsuccess {
-            background-color: #b6ff00 !important;
+            background-color: #8cd116 !important;
           }
 
           .progress-bar-neutral {
-            background-color: #FFF600 !important;
+            background-color: #e5d716 !important;
           }
 
           .progress-bar-success {
