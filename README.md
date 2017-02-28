@@ -6,7 +6,7 @@ This project requires both **Backend** (Java/JEE), **SQL**, **Ops** & **Frontend
 The 4-day project has to be released in **production** on a dedicated server, and **demonstrated** by the team in a full-house presentation.
 
 ![Admin Interface](/../master/screen.png?raw=true "Admin Panel Interface")
-![User Interface](/../master/screen.png?raw=true "User Panel Interface")
+![User Interface](/../master/screen2.png?raw=true "User Panel Interface")
 
 # Pool Conditions
 You will develop your project as a **team**, with minimum Agile management (we recommend the Kanban method).  
@@ -29,22 +29,27 @@ In terms of delivery, these are the requirements:
 # The Project    
 The project consists of a JEE webapp.  
 Your goal is to create both a client and an administration panel for an employee "mood of the month" app.
-Every last friday of the month, at around 10 AM, the MOTM (Mood Of The Month) app will send an email to each employee with a link.
-When following the link, the employee will be able to give their mood (a 1 to 5 scale) for the current month, and eventually put an additional comment.
+Every last friday of the month, at around 10 AM for example, the MOTM (Mood Of The Month) app will send an email to each employee with a link.
+When following the link, the employee will be able to give their mood (a 1 to 5 scale) for the current month, and eventually put an additional comment anonymously.
 
 In particular, the following items will be implemented:  
+
 **Admin panel:**
   * Create a new employee: name, email, birthdate, uuid
-  * Create the MOTM template content: Title, message template, page template. Use the Markdown template editor
+  * Create the MOTM template content: Title, message template, page template.
   * See MOTM stats
+
+
 **Client panel:**
-  * Answer the MOTM. Edit previous answer
+  * Answer the MOTM
+  * Edit a previous answer
 
 An **employee** can be edited. It has both a name, an email and a birthdate. Each user also has a unique identifier (uuid).
-A **MOTM** contains a title, a message template, and a page template. Templates are following the markdown specification.
+A **MOTM** contains a title, a message template, and a page template.
 
 You don't need to implement security like login or user account at the moment.
 We provided you with the front pages, even though you might still have to edit them in some way.
+To edit emails sending settings, you will need to use Ajax.
 
 ## Setup environment
 
@@ -78,11 +83,13 @@ We provided you with some content to help you bootstrap your work.
   - Bootstrap 3
   - Jquery 3
   - Font Awesome 4
+  - CKEditor 3
 
 Pages:
-  - motm_setup.html
+  - edit_motm.html
   - add_member.html
-  - stats.html
+  - dashboard.html
+  - index.html
   - motm.html
 
 # Bonus
