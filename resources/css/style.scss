@@ -22,6 +22,10 @@ body {
     }
   }
 
+  input {
+    border-radius: 0px !important;
+  }
+
   .navbar {
     height: 50px;
     ul.navbar-top-links {
@@ -95,6 +99,231 @@ body {
 
   .btn {
     border-radius: 0px !important;
+  }
+
+  #motm {
+    .notation {
+      display: flex;
+
+      label {
+        flex: 1 1 0px;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 300;
+        font-family: 'Open Sans', sans-serif;
+      }
+    }
+  }
+  
+  #stats {
+    .note {
+      text-align: right;
+      font-size: 4em;
+      font-weight: 300;
+      line-height: 30px;
+      font-family: 'Open Sans', sans-serif;
+      p {
+        font-size: 0.3em;
+        margin: 0;
+        padding: 0;
+      }
+      small {
+        color: #999;
+        font-size: 0.7em;
+      }
+    }
+
+    .details {
+      width: 100%;
+      .mood {
+        display: flex;
+        .img-container {
+          flex: 1 1 0px;
+          img {
+            width: 100%;
+          }
+        }
+        .progress-bar-container {
+          flex: 8 1 0px;
+          align-self: center;
+          padding: 0 10px;
+
+          .desc {
+            font-size: 0.8em;
+            color: #999999;
+          }
+
+          .progress {
+            background-color: rgba(255,255,255, .05) !important;
+          }
+          .progress-bar-midsuccess {
+            background-color: #b6ff00 !important;
+          }
+
+          .progress-bar-neutral {
+            background-color: #FFF600 !important;
+          }
+
+          .progress-bar-success {
+            background-color: #3fcf19 !important;
+          }
+
+        }
+      }
+    }
+
+  }
+
+  #dashboard {
+    height: 100vh;
+    width: 100vw;
+    background: #2e6da4;
+    padding: 30px;
+    position: relative;
+    font-family: 'Maven Pro', 'Open Sans', Arial;
+    display: flex;
+
+    .half {
+      flex: 1 1 0px;
+    }
+
+    .half-2 {
+      flex: 1 1 0px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .month {
+      position: absolute;
+      left: 3%;
+      top: 8%;
+      color: #ffffff;
+      p {
+        margin: 0;
+        padding: 0;
+        &.subtitle {
+          font-size: 2em;
+          color: #5ED6FE;
+          margin-left: 5px;
+          font-weight: 300;
+          font-family: 'Open Sans', sans-serif;
+        }
+        &.title {
+          font-size: 6em;
+          line-height: 0.8em;
+        }
+      }
+    }
+
+    .details {
+      position: absolute;
+      bottom: 50px;
+      width: 45%;
+      .mood {
+        display: flex;
+        .img-container {
+          flex: 1 1 0px;
+          img {
+            width: 100%;
+          }
+        }
+        .progress-bar-container {
+          flex: 8 1 0px;
+          align-self: center;
+          padding: 0 10px;
+          
+          .desc {
+            font-size: 1.3em;
+            color: #FFFFFF;
+          }
+
+          .progress {
+            background-color: rgba(255,255,255, .05) !important;
+          }
+          .progress-bar-midsuccess {
+            background-color: #b6ff00 !important;
+          }
+
+          .progress-bar-neutral {
+            background-color: #FFF600 !important;
+          }
+
+          .progress-bar-success {
+            background-color: #3fcf19 !important;
+          }
+
+        }
+      }
+    }
+
+    .global {
+      color: #FFFFFF;
+      flex: 1 1 0px;
+      .global-mood {
+        font-family: 'Open Sans', sans-serif;
+        display: flex;
+        .mood {
+          max-width: 200px;
+          flex: 1 1 0px;
+        }
+        .notation {
+          flex: 1 1 0px;
+          align-self: center;
+          .title {
+            text-transform: uppercase;
+            font-size: 2.3em;
+            padding: 0;
+            color: #5ED6FE;
+            font-weight: 300;
+          }
+          .note {
+            font-size: 6em;
+            line-height: 0.5em;
+          }
+          .note-on {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+    .comments {
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      flex: 2 1 0px;
+
+      .title {
+        font-weight: 300;
+      }
+
+      .comment-container {
+        width: 100%;
+        background: rgba(0,0,150,.4);
+        min-height: 40px;
+        display: flex;
+        margin-bottom: 10px;
+
+        .note {
+          padding: 8px;
+          width: 60px;
+          .mood {
+            width: 100%;
+          }
+          .notation {
+            text-align: center;
+            font-size: 1.4em;
+          }
+        }
+
+        .comment {
+          padding: 8px;
+          flex: 1 1 0px;
+          width: calc(100% - 60px);
+        }
+
+      }
+
+    }
+
   }
 
 }

@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="edit_motm.html">
+                        <a href="dashboard.html">
                             <div class="panel-footer">
                                 <span class="pull-left">Voir le dashboard</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -213,6 +213,33 @@
                                                        <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
                                                    </td>
                                                </tr>
+                                               <tr>
+                                                   <td>oduvoid</td>
+                                                   <td>oduvoid@e-biz.fr</td>
+                                                   <td>13/04/1992</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>fpchalopin</td>
+                                                   <td>fpchalopin@e-biz.fr</td>
+                                                   <td>13/04/1992</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                   <td>jmagloire</td>
+                                                   <td>jmagloire@e-biz.fr</td>
+                                                   <td>13/04/1992</td>
+                                                   <td class="text-right">
+                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
+                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                                   </td>
+                                               </tr>
                                             </tbody>
                                         </table>
                                         <div class="text-center">
@@ -236,27 +263,89 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-calendar fa-fw"></i> Codes reviews programmées
+                            <i class="fa fa-tachometer fa-fw"></i> Statistiques
                         </div>
-                        <div class="panel-body">
-                            <table class="table table-striped">
-                                <tr>
-                                    <td>Code review 1</td>
-                                    <td>Promo Février</td>
-                                    <td class="text-right"><span class="text-muted small">24/02/2017</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Code review 2</td>
-                                    <td>Promo Février</td>
-                                    <td class="text-right"><span class="text-muted small">05/03/2017</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Code review 1</td>
-                                    <td>Promo Mars</td>
-                                    <td class="text-right"><span class="text-muted small">10/03/2017</span></td>
-                                </tr>
-                            </table>
-                            <a href="#" class="btn btn-default btn-block">Programmer une code review</a>
+                        <div class="panel-body" id="stats">
+
+                            <div class="note">
+                                4.2<small>/5</small>
+                                <p>Note Globale</p>
+                            </div>
+
+                            <div class="details">
+                                <div class="mood">
+                                    <div class="img-container">
+                                        <img src="../img/1.png" alt="super"/>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <span class="desc">Nombre de votes: 10</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                                                <span class="">10%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mood">
+                                    <div class="img-container">
+                                        <img src="../img/2.png" alt="super"/>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <span class="desc">Nombre de votes: 5</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="5"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:5%">
+                                                <span class="">5%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mood">
+                                    <div class="img-container">
+                                        <img src="../img/3.png" alt="super"/>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <span class="desc">Nombre de votes: 15</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-neutral" role="progressbar" aria-valuenow="15"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:15%">
+                                                <span class="">15%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mood">
+                                    <div class="img-container">
+                                        <img src="../img/4.png" alt="super"/>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <span class="desc">Nombre de votes: 45</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-midsuccess" role="progressbar" aria-valuenow="45"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:45%">
+                                                <span class="">45%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mood">
+                                    <div class="img-container">
+                                        <img src="../img/5.png" alt="super"/>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <span class="desc">Nombre de votes: 25</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:25%">
+                                                <span class="">25%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="dashboard.html" class="btn btn-default btn-block">Afficher le dashboard</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -264,29 +353,45 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-users fa-fw"></i> Gestion des promotions
+                            <i class="fa fa-cog fa-fw"></i> Réglages
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-users fa-fw"></i> Promo Février
-                                    <span class="pull-right text-muted small"><em>8 membres</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-users fa-fw"></i> Promo Mars
-                                    <span class="pull-right text-muted small"><em>6 membres</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-users fa-fw"></i> Promo Avril
-                                    <span class="pull-right text-muted small"><em>0 membre</em>
-                                    </span>
-                                </a>
-                            </div>
+                            <table class="table settings">
+                                <tbody>
+                                    <tr>
+                                        <td>Date d'envoi</td>
+                                        <td>Dernier vendredi du mois</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Heure </td>
+                                        <td>10:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table editsettings hidden">
+                                <tbody>
+                                <tr>
+                                    <td>Date d'envoi</td>
+                                    <td>
+                                        <select name="date" class="form-control" id="senddate">
+                                            <option value="1">Dernier vendredi du mois</option>
+                                            <option value="2">Dernier jour du mois</option>
+                                            <option value="3">Premier undi du mois</option>
+                                            <option value="4">Premier jour du mois</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Heure </td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr><td colspan="2" align="right"><input type="submit" class="btn btn-sm btn-primary"></td></tr>
+                                </tbody>
+                            </table>
+
                             <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">Créer une nouvelle promotion</a>
+                            <a class="btn btn-default btn-block edit">Modifier les réglages</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -310,6 +415,9 @@
 
     <!-- jQuery -->
     <script src="../js/jquery-3.1.1.min.js"></script>
+
+    <!-- togggle.js -->
+    <script src="../js/toggle.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>

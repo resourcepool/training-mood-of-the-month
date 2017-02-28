@@ -35,26 +35,12 @@
                 <a class="navbar-brand" href="index.html">Mood of the month</a>
             </div>
             <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle navlink" data-toggle="dropdown" href="#">
-                        <i class="fa fa-gear fa-fw"></i> Gérer les MOTM <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="add_member.html"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
-                        </li>
-                        <li><a href="edit_motm.html"><i class="fa fa-calendar fa-fw"></i> Modifier le template</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
         </nav>
 
         <div id="page-wrapper" class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Ajouter un membre</h1>
+                    <h1 class="page-header">Comment s'est passé votre mois?</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -63,23 +49,24 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-body">
+                        <div class="panel-body" id="motm">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <form action="" method="post" class="">
                                         <div class="form-group">
-                                            <label for="name">Nom</label>
-                                            <input type="text" class="input-lg form-control" id="name" placeholder="Nom">
+                                            <label for="note">Note</label>
+                                            <div class="notation">
+                                                <label for="n1"><input id="n1" name="note" type="radio" value="1"> 1</label>
+                                                <label for="n2"><input id="n2" name="note" type="radio" value="2"> 2</label>
+                                                <label for="n3"><input id="n3" name="note" type="radio" value="3"> 3</label>
+                                                <label for="n4"><input id="n4" name="note" type="radio" value="4"> 4</label>
+                                                <label for="n5"><input id="n5" name="note" type="radio" value="5"> 5</label>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Adresse Email</label>
-                                            <input type="email" class="input-lg form-control" id="email" placeholder="Adresse Email">
+                                            <label for="content">Commentaire</label>
+                                            <textarea id="content" class="content"></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="date">Date de naissance</label>
-                                            <input type="text" class="input-lg form-control" id="date" placeholder="JJ/MM/AAAA">
-                                        </div>
-
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>
                                         </div>
@@ -113,6 +100,12 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+
+    <!-- CKEditor -->
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('content');
+    </script>
 
 </body>
 

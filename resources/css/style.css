@@ -15,6 +15,8 @@ body {
       content: "";
       display: block;
       height: 90px; }
+  body input {
+    border-radius: 0px !important; }
   body .navbar {
     height: 50px; }
     body .navbar ul.navbar-top-links {
@@ -62,5 +64,152 @@ body {
       height: 40px; }
   body .btn {
     border-radius: 0px !important; }
+  body #motm .notation {
+    display: flex; }
+    body #motm .notation label {
+      flex: 1 1 0px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: 300;
+      font-family: 'Open Sans', sans-serif; }
+  body #stats .note {
+    text-align: right;
+    font-size: 4em;
+    font-weight: 300;
+    line-height: 30px;
+    font-family: 'Open Sans', sans-serif; }
+    body #stats .note p {
+      font-size: 0.3em;
+      margin: 0;
+      padding: 0; }
+    body #stats .note small {
+      color: #999;
+      font-size: 0.7em; }
+  body #stats .details {
+    width: 100%; }
+    body #stats .details .mood {
+      display: flex; }
+      body #stats .details .mood .img-container {
+        flex: 1 1 0px; }
+        body #stats .details .mood .img-container img {
+          width: 100%; }
+      body #stats .details .mood .progress-bar-container {
+        flex: 8 1 0px;
+        align-self: center;
+        padding: 0 10px; }
+        body #stats .details .mood .progress-bar-container .desc {
+          font-size: 0.8em;
+          color: #999999; }
+        body #stats .details .mood .progress-bar-container .progress {
+          background-color: rgba(255, 255, 255, 0.05) !important; }
+        body #stats .details .mood .progress-bar-container .progress-bar-midsuccess {
+          background-color: #b6ff00 !important; }
+        body #stats .details .mood .progress-bar-container .progress-bar-neutral {
+          background-color: #FFF600 !important; }
+        body #stats .details .mood .progress-bar-container .progress-bar-success {
+          background-color: #3fcf19 !important; }
+  body #dashboard {
+    height: 100vh;
+    width: 100vw;
+    background: #2e6da4;
+    padding: 30px;
+    position: relative;
+    font-family: 'Maven Pro', 'Open Sans', Arial;
+    display: flex; }
+    body #dashboard .half {
+      flex: 1 1 0px; }
+    body #dashboard .half-2 {
+      flex: 1 1 0px;
+      display: flex;
+      flex-direction: column; }
+    body #dashboard .month {
+      position: absolute;
+      left: 3%;
+      top: 8%;
+      color: #ffffff; }
+      body #dashboard .month p {
+        margin: 0;
+        padding: 0; }
+        body #dashboard .month p.subtitle {
+          font-size: 2em;
+          color: #5ED6FE;
+          margin-left: 5px;
+          font-weight: 300;
+          font-family: 'Open Sans', sans-serif; }
+        body #dashboard .month p.title {
+          font-size: 6em;
+          line-height: 0.8em; }
+    body #dashboard .details {
+      position: absolute;
+      bottom: 50px;
+      width: 45%; }
+      body #dashboard .details .mood {
+        display: flex; }
+        body #dashboard .details .mood .img-container {
+          flex: 1 1 0px; }
+          body #dashboard .details .mood .img-container img {
+            width: 100%; }
+        body #dashboard .details .mood .progress-bar-container {
+          flex: 8 1 0px;
+          align-self: center;
+          padding: 0 10px; }
+          body #dashboard .details .mood .progress-bar-container .desc {
+            font-size: 1.3em;
+            color: #FFFFFF; }
+          body #dashboard .details .mood .progress-bar-container .progress {
+            background-color: rgba(255, 255, 255, 0.05) !important; }
+          body #dashboard .details .mood .progress-bar-container .progress-bar-midsuccess {
+            background-color: #b6ff00 !important; }
+          body #dashboard .details .mood .progress-bar-container .progress-bar-neutral {
+            background-color: #FFF600 !important; }
+          body #dashboard .details .mood .progress-bar-container .progress-bar-success {
+            background-color: #3fcf19 !important; }
+    body #dashboard .global {
+      color: #FFFFFF;
+      flex: 1 1 0px; }
+      body #dashboard .global .global-mood {
+        font-family: 'Open Sans', sans-serif;
+        display: flex; }
+        body #dashboard .global .global-mood .mood {
+          max-width: 200px;
+          flex: 1 1 0px; }
+        body #dashboard .global .global-mood .notation {
+          flex: 1 1 0px;
+          align-self: center; }
+          body #dashboard .global .global-mood .notation .title {
+            text-transform: uppercase;
+            font-size: 2.3em;
+            padding: 0;
+            color: #5ED6FE;
+            font-weight: 300; }
+          body #dashboard .global .global-mood .notation .note {
+            font-size: 6em;
+            line-height: 0.5em; }
+          body #dashboard .global .global-mood .notation .note-on {
+            font-size: 3em; }
+    body #dashboard .comments {
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      flex: 2 1 0px; }
+      body #dashboard .comments .title {
+        font-weight: 300; }
+      body #dashboard .comments .comment-container {
+        width: 100%;
+        background: rgba(0, 0, 150, 0.4);
+        min-height: 40px;
+        display: flex;
+        margin-bottom: 10px; }
+        body #dashboard .comments .comment-container .note {
+          padding: 8px;
+          width: 60px; }
+          body #dashboard .comments .comment-container .note .mood {
+            width: 100%; }
+          body #dashboard .comments .comment-container .note .notation {
+            text-align: center;
+            font-size: 1.4em; }
+        body #dashboard .comments .comment-container .comment {
+          padding: 8px;
+          flex: 1 1 0px;
+          width: calc(100% - 60px); }
 
 /*# sourceMappingURL=style.css.map */
