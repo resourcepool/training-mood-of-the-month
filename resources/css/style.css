@@ -92,7 +92,7 @@ body {
       -webkit-filter: grayscale(0.9);
       /* Google Chrome, Safari 6+ & Opera 15+ */
       width: 60%; }
-    body #motm .notation label > input:checked + img {
+    body #motm .notation label > input:checked + img, body #motm .notation label > input + img:hover {
       filter: none;
       -webkit-filter: grayscale(0);
       /* Google Chrome, Safari 6+ & Opera 15+ */ }
