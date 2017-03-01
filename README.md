@@ -91,6 +91,9 @@ Pages:
   - dashboard.html
   - index.html
   - motm.html
+  - newsletter.template.html
+  
+An email template is provided to you to send cross-browser compatible mails. You'll need to bind data to the template and send the whole page by mail. *Caution:* in mails, links must be absolute.
 
 # Bonus
 All is done on day 3?
