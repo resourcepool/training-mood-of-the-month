@@ -124,6 +124,22 @@ body {
         font-weight: 300;
         font-family: 'Open Sans', sans-serif;
       }
+
+      label > input{
+        visibility: hidden;
+        position: absolute;
+      }
+      label > input + img{
+        cursor:pointer;
+        filter: gray; /* IE6-9 */
+        filter: grayscale(0.9); /* Microsoft Edge and Firefox 35+ */
+        -webkit-filter: grayscale(0.9); /* Google Chrome, Safari 6+ & Opera 15+ */
+        width: 60%;
+      }
+      label > input:checked + img{
+        filter: none;
+        -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+      }
     }
   }
 
