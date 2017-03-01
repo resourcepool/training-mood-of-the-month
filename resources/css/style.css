@@ -96,6 +96,24 @@ body {
       filter: none;
       -webkit-filter: grayscale(0);
       /* Google Chrome, Safari 6+ & Opera 15+ */ }
+  body .title-motm h1 {
+    margin-bottom: 0px; }
+  body .title-motm .chapo {
+    font-size: 1.3em;
+    color: #555; }
+  body #statistics .dropdown {
+    margin-bottom: 10px; }
+    body #statistics .dropdown li {
+      min-width: 200px; }
+      body #statistics .dropdown li a {
+        padding: 8px;
+        width: 100%;
+        height: 100%;
+        display: block; }
+        body #statistics .dropdown li a:hover {
+          background: rgba(0, 0, 0, 0.1); }
+  body #statistics #dashboard {
+    height: auto !important; }
   body #stats .note {
     text-align: right;
     font-size: 4em;
@@ -134,7 +152,7 @@ body {
           background-color: #3fcf19 !important; }
   body #dashboard {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: #2e6da4;
     padding: 30px;
     position: relative;
@@ -147,10 +165,10 @@ body {
       display: flex;
       flex-direction: column; }
     body #dashboard .month {
-      position: absolute;
-      left: 3%;
-      top: 8%;
-      color: #ffffff; }
+      margin-left: 3%;
+      margin-top: 8%;
+      color: #ffffff;
+      margin-bottom: 10%; }
       body #dashboard .month p {
         margin: 0;
         padding: 0; }
@@ -164,9 +182,8 @@ body {
           font-size: 6em;
           line-height: 0.8em; }
     body #dashboard .details {
-      position: absolute;
-      bottom: 50px;
-      width: 45%; }
+      padding: 10px;
+      width: 95%; }
       body #dashboard .details .mood {
         display: flex; }
         body #dashboard .details .mood .img-container {
@@ -214,20 +231,26 @@ body {
     body #dashboard .comments {
       color: white;
       font-family: 'Open Sans', sans-serif;
-      flex: 2 1 0px; }
+      flex: 3 1 0px; }
       body #dashboard .comments .title {
         font-weight: 300; }
       body #dashboard .comments .comment-container {
         width: 100%;
-        background: rgba(0, 0, 150, 0.4);
-        min-height: 40px;
+        background: rgba(0, 0, 150, 0.2);
+        min-height: 60px;
+        font-size: 1.2em;
+        text-align: justify;
+        padding: 8px 8px 8px 0;
+        font-weight: 300;
         display: flex;
         margin-bottom: 10px; }
         body #dashboard .comments .comment-container .note {
-          padding: 8px;
-          width: 60px; }
+          padding-left: 8px;
+          width: 60px;
+          display: flex; }
           body #dashboard .comments .comment-container .note .mood {
-            width: 100%; }
+            flex: 1 1 0px;
+            align-self: center; }
           body #dashboard .comments .comment-container .note .notation {
             text-align: center;
             font-size: 1.4em; }
