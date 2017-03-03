@@ -58,30 +58,35 @@
                                             <label>Mood</label>
                                             <div class="notation">
                                                 <label for="n1">
-                                                    <input id="n1" name="note" type="radio" value="1">
-                                                    <img src="../img/1.png" alt="">
+                                                    <input id="n1" name="note" type="radio" value="1"/>
+                                                    <img src="../img/1.png" alt="Sad" width="100" height="100"/>
                                                 </label>
                                                 <label for="n2">
-                                                    <input id="n2" name="note" type="radio" value="2">
-                                                    <img src="../img/2.png" alt="">
+                                                    <input id="n2" name="note" type="radio" value="2"/>
+                                                    <img src="../img/2.png" alt="Not Happy" width="100" height="100"/>
                                                 </label>
                                                 <label for="n3">
-                                                    <input id="n3" name="note" type="radio" value="3">
-                                                    <img src="../img/3.png" alt="">
+                                                    <input id="n3" name="note" type="radio" value="3"/>
+                                                    <img src="../img/3.png" alt="Average" width="100" height="100"/>
                                                 </label>
                                                 <label for="n4">
-                                                    <input id="n4" name="note" type="radio" value="4">
-                                                    <img src="../img/4.png" alt="">
+                                                    <input id="n4" name="note" type="radio" value="4"/>
+                                                    <img src="../img/4.png" alt="Happy" width="100" height="100"/>
                                                 </label>
                                                 <label for="n5">
-                                                    <input id="n5" name="note" type="radio" value="5">
-                                                    <img src="../img/5.png" alt="">
+                                                    <input id="n5" name="note" type="radio" value="5"/>
+                                                    <img src="../img/5.png" alt="Super Happy" width="100" height="100"/>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="content">Comment (optional)</label>
                                             <textarea id="content" class="content"></textarea>
+                                            <br/>
+                                            <p>
+                                              Make this comment public(*)&nbsp;
+                                              <input name="public" type="checkbox"/>
+                                            </p>
                                         </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-lg btn-primary">Save</button>
@@ -90,6 +95,9 @@
                                 </div>
                             </div>
                             <!-- /.row -->
+                            <div class="row">
+                              <i>* Public comments will be displayed on the company dashboard for everyone to see. Nice if you want to say hello :)</i>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -106,7 +114,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row text-center">
-                Resources Pool &bullet; 2017
+                ResourcePool &bullet; 2017
             </div>
         </div>
     </footer>
