@@ -249,6 +249,7 @@ body {
           width: 60px;
           display: flex; }
           body #dashboard .comments .comment-container .note .mood {
+            max-width: 60px;
             flex: 1 1 0px;
             align-self: center; }
           body #dashboard .comments .comment-container .note .notation {

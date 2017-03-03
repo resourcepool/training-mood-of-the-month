@@ -371,6 +371,7 @@ body {
           width: 60px;
           display: flex;
           .mood {
+            max-width: 60px;
             flex: 1 1 0px;
             align-self: center;
           }

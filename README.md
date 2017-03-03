@@ -5,7 +5,7 @@ The goal of this mini-project is to refresh your **Java / JEE** skills in a 4 da
 This project requires both **Backend** (Java/JEE), **SQL**, **Ops** & **Frontend** skills (JSP, HTML, CSS, JavaScript).  
 The 4-day project has to be released in **production** on a dedicated server, and **demonstrated** by the team in a full-house presentation.
 
-![Admin Interface](/../master/screen.png?raw=true "Admin Panel Interface")
+![Admin Interface](/../master/screen.jpg?raw=true "Admin Panel Interface")
 ![User Interface](/../master/screen2.png?raw=true "User Panel Interface")
 
 # Pool Conditions
@@ -92,7 +92,7 @@ Pages:
   - index.html
   - motm.html
   - newsletter.template.html
-  
+
 An email template is provided to you to send cross-browser compatible mails. You'll need to bind data to the template and send the whole page by mail. *Caution:* in mails, links must be absolute.
 
 # Bonus
