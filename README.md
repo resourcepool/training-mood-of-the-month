@@ -18,7 +18,7 @@ Every day, the team will be able to attend a retrospective at the time of their 
  * The global workflow efficiency
 
 In terms of team work, you are free to try anything you want.  
-Do not hesitate to try out eXtreme Programming concepts such as Pair Programming, Code Reviews, Test-Driven Development, and take the time to plan important parts of your project in common. However, the only thing your "customer" is asking for, is for your "Proof Of Concept" to work... Code Quality wont be as important as it usually is.
+You could try out eXtreme Programming concepts such as Pair Programming, Code Reviews, Test-Driven Development, etc... and take the time to plan important parts of your project in common. However, the only thing your "customer" is asking for, is for your "Proof Of Concept" to work... Code Quality wont be as important as it usually is. Make your choices :)
 
 In terms of delivery, these are the requirements:
    * Clean code
