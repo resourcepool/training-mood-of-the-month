@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "WelcomePool/src/main/java",
+        "WelcomePool/src",
+        "WelcomePool"
+    ]
+}
