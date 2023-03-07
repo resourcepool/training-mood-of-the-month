@@ -10,6 +10,7 @@ CREATE TABLE "Employee" (
 CREATE TABLE "MOTM_Answer" (
   "uuid" SERIAL PRIMARY KEY,
   "message" varchar,
+  "grade" integer,
   "Employee_id" integer,
   "MOTM_id" integer,
   "created_at" timestamp,
