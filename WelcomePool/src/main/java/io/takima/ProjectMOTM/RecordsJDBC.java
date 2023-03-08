@@ -82,7 +82,7 @@ public class RecordsJDBC {
 
                 Statement statement = conn.createStatement();
                 System.out.println("Clean motm table");
-                String sqlQuery = "DELETE * FROM MOTM;";
+                String sqlQuery = "DELETE FROM MOTM;";
                 statement.executeUpdate(sqlQuery);
                 System.out.println("Connection closed");
             }
