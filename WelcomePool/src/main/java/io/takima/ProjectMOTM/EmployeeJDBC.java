@@ -58,7 +58,7 @@ public class EmployeeJDBC {
                     Employee employee = new Employee(result.getString("name"), result.getString("email"), result.getDate("birthdate"));
                     employeeList.add(employee);
 
-                    System.out.println(employee.getName());
+                    System.out.println(employee);
                 }
 
                 conn.close();
