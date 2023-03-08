@@ -21,6 +21,23 @@ public class MotmJDBC {
         this.password = password;
     }
 
+    public void updateMotm(String sqlQuery) {
+
+        try {
+            Connection conn = DriverManager.getConnection(dbURL, username, password);
+
+            if (conn != null) {
+                System.out.println("Connected");
+                Statement statement = conn.createStatement();
+                statement.executeUpdate(sqlQuery);
+                conn.close();
+                System.out.println("Connection closed");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public List<MOTM> getAllMotm(String sqlQuery) {
 
         List<MOTM> motmList = new ArrayList<>();

@@ -18,7 +18,10 @@ import javax.persistence.Id;
 @Entity
 public class MOTM {
 
-    private Integer uuid;
+    //@Column(name="uuid", unique = true, nullable = false)
+    //@GeneratedValue
+    //@Id
+    //private Integer uuid;
     @Column(name="title", nullable = false)
     private String title;
     @Column(name="message_template", nullable = false)
