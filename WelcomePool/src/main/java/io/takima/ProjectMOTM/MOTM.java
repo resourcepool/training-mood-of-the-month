@@ -43,7 +43,6 @@ public class MOTM {
     @Override
     public String toString() {
         return "MOTM{" +
-                "uuid=" + uuid +
                 ", title='" + title + '\'' +
                 ", message_template='" + message_template + '\'' +
                 ", page_template='" + page_template + '\'' +
