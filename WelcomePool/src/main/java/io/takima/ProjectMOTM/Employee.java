@@ -1,52 +1,43 @@
 package io.takima.ProjectMOTM;
 
-import java.util.UUID;
+import java.time.LocalDate;
 import java.util.Date;
+import org.hibernate.annotations.*;
+import lombok.*;
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
+
+
+@Table(name="Employee", schema="projectmotm")
+@Setter
+@Getter
+@Entity
 public class Employee {
-    private UUID uuid;
+    //@Column(name="uuid", unique = true, nullable = false)
+    //@GeneratedValue
+    //@Id
+    //private Integer uuid;
+    @Column(name="name", nullable = false)
     private String name;
+    @Column(name="email", nullable = false)
     private String email;
-    private Date dateBirth;
+    @Column(name="birthdate", nullable = false)
+    private Date birthdate;
+    @Column(name="created_at", nullable = false)
+    private LocalDate created_at;
+    @Column(name="updated_at", nullable = false)
+    private LocalDate updated_at;
 
-    // Constructeur
     public Employee(String name, String email, Date dateBirth) {
         this.name = name;
         this.email = email;
-        this.dateBirth = dateBirth;
-        this.uuid = UUID.randomUUID();
+        this.birthdate = dateBirth;
+        this.created_at = java.time.LocalDate.now();
     }
 
-    // Getters et Setters
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getDateBirth() {
-        return dateBirth;
-    }
-
-    public void setDateBirth(Date dateBirth) {
-        this.dateBirth = dateBirth;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
 }

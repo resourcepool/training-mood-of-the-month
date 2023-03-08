@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Informations de connexion à la base de données -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/welcomepool</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- Dialecte de base de données -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Chemin vers les entités -->
+        <mapping class="io.takima.ProjectMOTM.Employee"/>
+        <mapping class="io.takima.ProjectMOTM.MOTM"/>
+        <mapping class="io.takima.ProjectMOTM.MOTM_Answer"/>
+
+        <!-- Autres propriétés de configuration -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+    </session-factory>
+</hibernate-configuration>

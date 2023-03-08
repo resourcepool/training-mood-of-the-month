@@ -1,54 +1,40 @@
 package io.takima.ProjectMOTM;
 
-import java.util.Objects;
+import java.time.LocalDate;
 
+import lombok.*;
+import org.hibernate.annotations.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
+
+@Table(name="MOTM", schema="projectmotm")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class MOTM {
-    private String titre;
-    private String modeleMessage;
-    private String modelePage;
 
-    // Constructeur
-    public MOTM(String titre, String modeleMessage, String modelePage) {
-        this.titre = titre;
-        this.modeleMessage = modeleMessage;
-        this.modelePage = modelePage;
-    }
+    private Integer uuid;
+    @Column(name="title", nullable = false)
+    private String title;
+    @Column(name="message_template", nullable = false)
+    private String message_template;
+    @Column(name="page_template", nullable = false)
+    private String page_template;
+    @Column(name="created_at", nullable = false)
+    private LocalDate created_at;
+    @Column(name="updated_at", nullable = false)
+    private LocalDate updated_at;
 
-    // Getters et Setters
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
-
-    public String getModeleMessage() {
-        return modeleMessage;
-    }
-
-    public void setModeleMessage(String modeleMessage) {
-        this.modeleMessage = modeleMessage;
-    }
-
-    public String getModelePage() {
-        return modelePage;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MOTM motm)) return false;
-        return titre.equals(motm.titre) && modeleMessage.equals(motm.modeleMessage) && modelePage.equals(motm.modelePage);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(titre, modeleMessage, modelePage);
-    }
-
-    public void setModelePage(String modelePage) {
-        this.modelePage = modelePage;
+    public MOTM(String title, String message_template, String page_template) {
+        this.title = title;
+        this.message_template = message_template;
+        this.page_template = page_template;
+        this.created_at = java.time.LocalDate.now();
     }
 }
 
