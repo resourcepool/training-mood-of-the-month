@@ -36,5 +36,17 @@ public class MOTM {
         this.page_template = page_template;
         this.created_at = java.time.LocalDate.now();
     }
+
+    @Override
+    public String toString() {
+        return "MOTM{" +
+                "uuid=" + uuid +
+                ", title='" + title + '\'' +
+                ", message_template='" + message_template + '\'' +
+                ", page_template='" + page_template + '\'' +
+                ", created_at=" + created_at +
+                ", updated_at=" + updated_at +
+                '}';
+    }
 }
 
