@@ -14,10 +14,10 @@
     <title>Mood of the month</title>
 
     <!-- Bootstrap CSS -->
-    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../index.html">Mood of the month</a>
+            <a class="navbar-brand" href="index.html">Mood of the month</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -201,7 +201,7 @@
                         <div class="details">
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="${pageContext.request.contextPath}/img/1.png" alt="super"/>
+                                    <img src="../img/1.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
                                     <span class="desc">Vote count: 10</span>
@@ -215,7 +215,7 @@
                             </div>
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="${pageContext.request.contextPath}/img/2.png" alt="super"/>
+                                    <img src="../img/2.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
                                     <span class="desc">Vote count: 5</span>
@@ -229,7 +229,7 @@
                             </div>
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="${pageContext.request.contextPath}/img/3.png" alt="super"/>
+                                    <img src="../img/3.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
                                     <span class="desc">Vote count: 15</span>
@@ -243,7 +243,7 @@
                             </div>
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="${pageContext.request.contextPath}/img/4.png" alt="super"/>
+                                    <img src="../img/4.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
                                     <span class="desc">Vote count: 45</span>
@@ -257,7 +257,7 @@
                             </div>
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="${pageContext.request.contextPath}/img/5.png" alt="super"/>
+                                    <img src="../img/5.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
                                     <span class="desc">Vote count: 25</span>
@@ -340,13 +340,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+<script src="../js/jquery-3.1.1.min.js"></script>
 
 <!-- togggle.js -->
-<script src="${pageContext.request.contextPath}/js/toggle.js"></script>
+<script src="../js/toggle.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 </body>
 

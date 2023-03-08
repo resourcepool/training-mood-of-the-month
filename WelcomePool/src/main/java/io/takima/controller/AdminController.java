@@ -26,7 +26,7 @@ public class AdminController extends HttpServlet {
 
             req.setAttribute("Employee", adminService.getEmployee());
             req.setAttribute("Employees", adminService.getEmployees());
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/index.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
             dispatcher.forward(req, resp);
     }
 
