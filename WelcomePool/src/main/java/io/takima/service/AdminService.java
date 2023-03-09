@@ -1,9 +1,6 @@
 package io.takima.service;
 
-import io.takima.ProjectMOTM.Employee;
-import io.takima.ProjectMOTM.EmployeeService;
-import io.takima.ProjectMOTM.MOTM;
-import io.takima.ProjectMOTM.MOTM_Answer;
+import io.takima.ProjectMOTM.*;
 import io.takima.controller.GradeStats;
 
 import java.util.ArrayList;
@@ -43,9 +40,10 @@ public class AdminService {
     }
 
     public int getMOTMCount() {
-        return new ArrayList<MOTM>(Arrays.asList(
-                new MOTM(1,"Mars", "MOTM de mars", "template1"),
-                new MOTM(1,"Mars", "MOTM de mars", "template1")
-        )).size();
+
+        MotmService motmService = new MotmService();
+        ArrayList<MOTM> motmList = motmService.getAllMotm();
+
+        return motmList.size();
     }
 }

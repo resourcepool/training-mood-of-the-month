@@ -1,10 +1,16 @@
 package io.takima.ProjectMOTM;
 
+import javax.annotation.Resource;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MotmDAO{
+
+    @Resource(name = "PostgresDS")
+    private DataSource dataSource;
 
     private Connection connection;
     public MotmDAO() {
@@ -124,12 +130,14 @@ public class MotmDAO{
     }
 
 
-    public List<MOTM> getAllMotm() {
+    public ArrayList<MOTM> getAllMotm() {
 
-        List<MOTM> motmList = new ArrayList<>();
+        ArrayList<MOTM> motmList = new ArrayList<>();
 
         try {
-            connection = DbConfig.getConnection();
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
             System.out.println("Connected");
             String sqlQuery = "SELECT * FROM motm";
             Statement statement = connection.createStatement();
@@ -141,7 +149,7 @@ public class MotmDAO{
             }
             connection.close();
             System.out.println("Connection closed");
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return motmList;
