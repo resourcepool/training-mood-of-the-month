@@ -1,5 +1,6 @@
 package io.takima.ProjectMOTM;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public class EmployeeService{
         employeeDAO.updateEmailEmployee(e,email);
     }
 
-    public void updateBirthdayEmploye(Employee e, Date Birthday) {
-        employeeDAO.updateBirthdayEmployee(e, (java.sql.Date) Birthday);
+    public void updateBirthdayEmploye(Employee e, LocalDate Birthday) {
+        employeeDAO.updateBirthdayEmployee(e, Birthday);
     }
 
     public void DeleteEmploye(Employee e) {
