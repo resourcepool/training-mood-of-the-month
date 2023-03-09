@@ -16,6 +16,9 @@ import javax.persistence.Id;
 @Entity
 public class MOTM_Answer {
 
+    // TODO : vérifier que dans la table Postgres on a une colonne MOTM_id
+
+
     public enum Grade {
         A(5.0),
         B(4.0),

@@ -11,6 +11,8 @@ import java.util.Date;
 @EqualsAndHashCode
 @ToString
 public class Employee {
+
+    // TODO : vérifier que dans la table Postgres on a une colonne Employee_id sans maj
     private Integer uuid;
     private String name;
     private String email;
