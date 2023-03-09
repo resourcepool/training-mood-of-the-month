@@ -1,6 +1,8 @@
 package io.takima.ProjectMOTM;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class EmployeeDAO {
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, e.getName());
             statement.setString(2, e.getEmail());
-            statement.setDate(3, (Date) e.getBirthdate());
+            statement.setDate(3, Date.valueOf(e.getBirthdate()));
             statement.setDate(4, date);
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
@@ -133,7 +135,7 @@ public class EmployeeDAO {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate"));
+                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate());
                 employeeList.add(employee);
 
                 System.out.println(employee);

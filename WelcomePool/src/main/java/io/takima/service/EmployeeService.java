@@ -1,27 +1,30 @@
-package io.takima.ProjectMOTM;
+package io.takima.service;
+
+import io.takima.ProjectMOTM.Employee;
+import io.takima.ProjectMOTM.EmployeeDAO;
 
 import java.util.Date;
 import java.util.List;
 
-public class EmployeeService{
+public class EmployeeService {
     EmployeeDAO employeeDAO = new EmployeeDAO();
-    public void insertEmploye(Employee e) {
+    public void insertEmployee(Employee e) {
         employeeDAO.insertEmployee(e);
     }
 
-    public void updateNameEmploye(Employee e, String name) {
+    public void updateNameEmployee(Employee e, String name) {
         employeeDAO.updateNameEmployee(e,name);
     }
 
-    public void updateEmailEmploye(Employee e,String email) {
+    public void updateEmailEmployee(Employee e,String email) {
         employeeDAO.updateEmailEmployee(e,email);
     }
 
-    public void updateBirthdayEmploye(Employee e, Date Birthday) {
+    public void updateBirthdayEmployee(Employee e, Date Birthday) {
         employeeDAO.updateBirthdayEmployee(e, (java.sql.Date) Birthday);
     }
 
-    public void DeleteEmploye(Employee e) {
+    public void DeleteEmployee(Employee e) {
         employeeDAO.DeleteEmployee(e);
     }
     public List<Employee> getEmployees() {

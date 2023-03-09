@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
 
-    AdminService adminService = new AdminService();
+    private AdminService adminService = new AdminService();
 
     @Override
     public void init() {
