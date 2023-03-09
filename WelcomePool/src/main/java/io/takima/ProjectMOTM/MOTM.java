@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor
 public class MOTM {
 
     private Integer uuid;

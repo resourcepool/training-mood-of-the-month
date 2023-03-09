@@ -74,7 +74,7 @@
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">46</div>
+                                <div class="huge"><%=(int)request.getAttribute("EmployeeCount")%></div>
                                 <div class="huge-label">Registered members</div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                 <i class="fa fa-smile-o fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">3</div>
+                                <div class="huge"><%=(int)request.getAttribute("MotmCount")%></div>
                                 <div class="huge-label">Moods Closed</div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="dashboard.html">
+                    <a href="dashboard">
                         <div class="panel-footer">
                             <span class="pull-left">Show dashboard</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

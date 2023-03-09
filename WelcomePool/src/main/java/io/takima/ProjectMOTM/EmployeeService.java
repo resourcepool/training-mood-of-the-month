@@ -1,5 +1,8 @@
 package io.takima.ProjectMOTM;
 
+import java.time.LocalDate;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,16 +20,15 @@ public class EmployeeService{
         employeeDAO.updateEmailEmployee(e,email);
     }
 
-    public void updateBirthdayEmploye(Employee e, Date Birthday) {
-        employeeDAO.updateBirthdayEmployee(e, (java.sql.Date) Birthday);
+    public void updateBirthdayEmploye(Employee e, LocalDate Birthday) {
+        employeeDAO.updateBirthdayEmployee(e, Birthday);
     }
 
     public void DeleteEmploye(Employee e) {
         employeeDAO.DeleteEmployee(e);
     }
-    public List<Employee> getEmployees() {
-        List<Employee> listEmployees = employeeDAO.getAllEmployees();
-
+    public ArrayList<Employee> getEmployees() {
+        ArrayList<Employee> listEmployees = employeeDAO.getAllEmployees();
         return listEmployees;
     }
 

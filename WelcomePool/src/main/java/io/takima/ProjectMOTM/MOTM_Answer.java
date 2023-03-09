@@ -1,7 +1,6 @@
 package io.takima.ProjectMOTM;
 
 import lombok.*;
-import org.hibernate.annotations.*;
 import java.util.Date;
 import java.time.LocalDate;
 //import javax.persistence.GeneratedValue;
@@ -13,8 +12,13 @@ import javax.persistence.Id;
 @Table(name="MOTM_Answer", schema="projectmotm")
 @Setter
 @Getter
-@Entity
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
 public class MOTM_Answer {
+
+    // TODO : vérifier que dans la table Postgres on a une colonne MOTM_id
+
 
     public enum Grade {
         A(5.0),
@@ -32,26 +36,26 @@ public class MOTM_Answer {
         public double getValue() {
             return value;
         }
+
+        public static Grade fromValue(double value) {
+            for (Grade grade : values()) {
+                if (grade.value == value) {
+                    return grade;
+                }
+            }
+            throw new IllegalArgumentException("No grade with value " + value);
+        }
     }
-
-    /*@Column(name="uuid", unique = true, nullable = false)
-    @GeneratedValue
-    @Id
-    private Integer uuid;*/
-    @Column(name="message", nullable = false)
+    private Integer uuid;
     private String message;
-    @Column(name="grade", nullable = false)
     private Grade grade;
-    @Column(name="Employee_id", nullable = false)
     private Integer Employee_id;
-    @Column(name="MOTM_id", nullable = false)
     private Integer MOTM_id;
-    @Column(name="created_at", nullable = false)
     private LocalDate created_at;
-    @Column(name="updated_at", nullable = false)
-    private Date updated_at;
+    private LocalDate updated_at;
 
-    public MOTM_Answer(String message, Grade grade, Integer Employee_id, Integer MOTM_id) {
+    public MOTM_Answer(Integer uuid, String message, Grade grade, Integer Employee_id, Integer MOTM_id) {
+        this.uuid = uuid;
         this.message = message;
         this.grade = grade;
         this.Employee_id = Employee_id;
