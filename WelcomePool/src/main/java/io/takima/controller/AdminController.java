@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
 
-    AdminService adminService = new AdminService();
+    private AdminService adminService = new AdminService();
 
     // TODO : il faut trouver comment initialiser la base : vide ou avec des données, si avec des données il faut initialiser UNE SEULE fois et pas à chaque refresh de l'uri /admin
     @Override

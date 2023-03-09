@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Mood of the month</a>
+            <a class="navbar-brand" href="admin">Mood of the month</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -48,7 +48,7 @@
                     <i class="fa fa-gear fa-fw"></i> Manage MOTMs <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="add_member.html"><i class="fa fa-user fa-fw"></i> Add member</a>
+                    <li><a href="addMember"><i class="fa fa-user fa-fw"></i> Add member</a>
                     </li>
                     <li><a href="edit_motm.html"><i class="fa fa-calendar fa-fw"></i> Change MOTM Template</a>
                     </li>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="add_member.html">
+                    <a href="addMember">
                         <div class="panel-footer">
                             <span class="pull-left">Add member</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
