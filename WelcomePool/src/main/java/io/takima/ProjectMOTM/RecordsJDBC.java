@@ -19,14 +19,36 @@ public class RecordsJDBC {
     }
 
     public void flushEmployeeOnInit() {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        System.out.println("Clean employee table");
+        try {
+            Connection connection = DbConfig.getConnection();
+            Statement stat = connection.createStatement();
+            stat.executeUpdate("DELETE FROM employee");
+            System.out.println("Clean employee table");
+            connection.close();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
+    public void insertRecordsInMotmOnInit() {
+        MotmDAO MotmDAO = new MotmDAO();
+
+        MOTM motm = new MOTM(1,"test", "message1", "page1");
+        MotmDAO.insertMotm(motm);
+        MotmDAO.updateTitleMotm(motm,"test2");
+        MotmDAO.updateMessageMotm(motm, "message2");
+        MotmDAO.updatePageMotm(motm, "page2");
+    }
     public void flushMotmOnInit() {
-
-        MotmDAO motmDAO = new MotmDAO();
-        System.out.println("Clean motm table");
-
+        try {
+            Connection connection = DbConfig.getConnection();
+            Statement stat = connection.createStatement();
+            stat.executeUpdate("DELETE FROM motm");
+            System.out.println("Clean employee table");
+            connection.close();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
+
 }

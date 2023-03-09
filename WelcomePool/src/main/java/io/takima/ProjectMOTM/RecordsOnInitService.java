@@ -11,5 +11,6 @@ public class RecordsOnInitService {
 
         // Insérer des données au démarrage pour pouvoir bosser dessus en dev
         recordsJDBC.insertRecordsInEmployeeOnInit();
+        recordsJDBC.insertRecordsInMotmOnInit();
     }
 }

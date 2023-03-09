@@ -10,6 +10,7 @@ import java.util.Date;
 @Setter
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor
 public class Employee {
     private Integer uuid;
     private String name;

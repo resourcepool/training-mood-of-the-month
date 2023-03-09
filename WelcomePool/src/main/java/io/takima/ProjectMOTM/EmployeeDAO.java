@@ -136,7 +136,7 @@ public class EmployeeDAO {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate());
+                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate(), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
                 employeeList.add(employee);
 
                 System.out.println(employee);

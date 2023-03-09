@@ -6,28 +6,28 @@ import java.util.List;
 
 public class MotmService {
 
-    MotmDAO motmJDBC = new MotmDAO();
+    MotmDAO motmDAO = new MotmDAO();
     public void insertMotm(MOTM m) {
-        motmJDBC.insertMotm(m);
+        motmDAO.insertMotm(m);
     }
 
     public void updateTitleMotm(MOTM m,String title) {
-        motmJDBC.updateTitleMotm(m,title);
+        motmDAO.updateTitleMotm(m,title);
     }
 
     public void updateMsgMotm(MOTM m, String msg_template) {
-        motmJDBC.updateMessageMotm(m,msg_template);
+        motmDAO.updateMessageMotm(m,msg_template);
     }
 
     public void updatePageMotm(MOTM m, String page_template) {
-        motmJDBC.updatePageMotm(m,page_template);
+        motmDAO.updatePageMotm(m,page_template);
     }
 
     public void DeleteMotm(MOTM m) {
-        motmJDBC.DeleteMotm(m);
+        motmDAO.DeleteMotm(m);
     }
     public List<MOTM> getAllMotm() {
-        List<MOTM> motmList = motmJDBC.getAllMotm();
+        List<MOTM> motmList = motmDAO.getAllMotm();
 
         return motmList;
     }
