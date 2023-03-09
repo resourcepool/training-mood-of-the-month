@@ -24,17 +24,17 @@ public class RecordsJDBC {
     public RecordsJDBC() {
     }
 
-    public void insertRecordsInEmployeeOnInit(){
-        EmployeeDAO employeeDAO = new EmployeeDAO();
+//    public void insertRecordsInEmployeeOnInit(){
+//        EmployeeDAO employeeDAO = new EmployeeDAO();
+//
+//        Employee emp = new Employee(1, "Loic Ortola", "lortola@e-biz", java.time.LocalDate.of(1998,10,02));
+//        employeeDAO.insertEmployee(emp);
+//        employeeDAO.updateNameEmployee(emp,"Loc");
+//        employeeDAO.updateEmailEmployee(emp, "test@test");
+//        employeeDAO.updateBirthdayEmployee(emp, java.time.LocalDate.of(1997,10,02));
+//    }
 
-        Employee emp = new Employee(1, "Loic Ortola", "lortola@e-biz", java.time.LocalDate.of(1998,10,02));
-        employeeDAO.insertEmployee(emp);
-        employeeDAO.updateNameEmployee(emp,"Loc");
-        employeeDAO.updateEmailEmployee(emp, "test@test");
-        employeeDAO.updateBirthdayEmployee(emp, java.time.LocalDate.of(1997,10,02));
-    }
-
-    public void flushEmployeeOnInit() {
+    public void insertRecordsInEmployeeOnInit() {
         try {
             InitialContext ctx = new InitialContext();
             DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
@@ -83,7 +83,7 @@ public class RecordsJDBC {
         MotmDAO.updatePageMotm(motm, "page2");
     }
 
-    public void flushEmployeeOnInit() {
+        public void flushEmployeeOnInit() {
         try {
             InitialContext ctx = new InitialContext();
             DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
