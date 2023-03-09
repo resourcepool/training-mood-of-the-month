@@ -47,10 +47,6 @@ public class RecordsJDBC {
                 statement.executeUpdate(sqlQuery);
                 System.out.println("New record inserted");
 
-                sqlQuery = "INSERT INTO motm (name, email, birthdate) VALUES ('Ivan', 'mail@ivan.fr', '04/04/2000')";
-                statement.executeUpdate(sqlQuery);
-                System.out.println("New record inserted");
-
                 conn.close();
                 System.out.println("Connection closed");
             }
