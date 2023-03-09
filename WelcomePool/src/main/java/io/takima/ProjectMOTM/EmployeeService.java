@@ -25,9 +25,7 @@ public class EmployeeService{
         employeeDAO.DeleteEmployee(e);
     }
     public List<Employee> getEmployees() {
-
-        String sql = "SELECT * FROM Employee;";
-        List<Employee> listEmployees = employeeDAO.getAllEmployees(sql);
+        List<Employee> listEmployees = employeeDAO.getAllEmployees();
 
         return listEmployees;
     }

@@ -123,13 +123,13 @@ public class EmployeeDAO {
     }
 
 
-    public List<Employee> getAllEmployees(String sqlQuery) {
+    public List<Employee> getAllEmployees() {
 
         List<Employee> employeeList = new ArrayList<>();
-
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
+            String sqlQuery = "SELECT * FROM employee";
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
