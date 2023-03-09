@@ -12,5 +12,8 @@ public class Main {
 
         MotmService motmService = new MotmService();
         motmService.getAllMotm();
+
+        MOTM_AnswerService motmAnsService = new MOTM_AnswerService();
+        motmAnsService.getAllMotmAnswer();
     }
 }

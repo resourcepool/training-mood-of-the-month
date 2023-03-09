@@ -11,7 +11,7 @@ public class RecordsJDBC {
     public void insertRecordsInEmployeeOnInit(){
         EmployeeDAO employeeDAO = new EmployeeDAO();
 
-        Employee emp = new Employee(125, "Loic Ortola", "lortola@e-biz", java.time.LocalDate.of(1998,10,02));
+        Employee emp = new Employee(1, "Loic Ortola", "lortola@e-biz", java.time.LocalDate.of(1998,10,02));
         employeeDAO.insertEmployee(emp);
         employeeDAO.updateNameEmployee(emp,"Loc");
         employeeDAO.updateEmailEmployee(emp, "test@test");
@@ -44,6 +44,26 @@ public class RecordsJDBC {
             Connection connection = DbConfig.getConnection();
             Statement stat = connection.createStatement();
             stat.executeUpdate("DELETE FROM motm");
+            System.out.println("Clean employee table");
+            connection.close();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertRecordsInMotmAnsOnInit() {
+        MOTM_AnswerDAO MotmAnsDAO = new MOTM_AnswerDAO();
+
+        MOTM_Answer motmAns = new MOTM_Answer(1,"message1", MOTM_Answer.Grade.E, 1, 1);
+        MotmAnsDAO.insertMotmAnswer(motmAns);
+        MotmAnsDAO.updateMsgMotmAns(motmAns,"message2");
+        MotmAnsDAO.updateGradeMotmAns(motmAns, MOTM_Answer.Grade.D);
+    }
+    public void flushMotmAnsOnInit() {
+        try {
+            Connection connection = DbConfig.getConnection();
+            Statement stat = connection.createStatement();
+            stat.executeUpdate("DELETE FROM motm_answer");
             System.out.println("Clean employee table");
             connection.close();
         }catch(SQLException ex){
