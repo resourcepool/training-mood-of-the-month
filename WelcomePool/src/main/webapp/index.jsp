@@ -1,5 +1,6 @@
 <%@ page import="io.takima.ProjectMOTM.Employee" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="io.takima.controller.GradeStats" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -14,13 +15,20 @@
     <title>Mood of the month</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
+<%--
+    <style><%@include file="css/bootstrap.css"%></style>
+--%>
+    <style><%@include file="css/bootstrap-theme.css"%></style>
+    <style><%@include file="css/metisMenu.css"%></style>
+    <style><%@include file="css/style.css"%></style>
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <>
 </head>
 
 <body>
@@ -193,82 +201,36 @@
                     </div>
                     <div class="panel-body" id="stats">
 
+                        <%  ArrayList<GradeStats> gradeStats = (ArrayList<GradeStats>)request.getAttribute("GradeStats");
+                            double avg = 0;
+                            for (GradeStats stats : gradeStats) {
+                                avg += stats.grade.getValue() * stats.percent;
+                            }
+                            avg = Math.round(avg * 100.0) / 100.0;
+                        %>
                         <div class="note">
-                            4.2<small>/5</small>
+                            <%=avg%><small>/5</small>
                             <p>Avg Mood</p>
                         </div>
 
                         <div class="details">
+                            <% for (GradeStats stats : gradeStats) {
+                                double showPercent = Math.round(stats.percent * 10000) / 100;%>
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="../img/1.png" alt="super"/>
+                                    <img src="img/<%=stats.grade.getValue()%>.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
-                                    <span class="desc">Vote count: 10</span>
+                                    <span class="desc">Vote count: <%=stats.nb%></span>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                                            <span class="">10%</span>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="<%=stats.nb%>"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<%=showPercent%>%">
+                                            <span class=""><%=showPercent%>%</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mood">
-                                <div class="img-container">
-                                    <img src="../img/2.png" alt="super"/>
-                                </div>
-                                <div class="progress-bar-container">
-                                    <span class="desc">Vote count: 5</span>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="5"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:5%">
-                                            <span class="">5%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mood">
-                                <div class="img-container">
-                                    <img src="../img/3.png" alt="super"/>
-                                </div>
-                                <div class="progress-bar-container">
-                                    <span class="desc">Vote count: 15</span>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-neutral" role="progressbar" aria-valuenow="15"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:15%">
-                                            <span class="">15%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mood">
-                                <div class="img-container">
-                                    <img src="../img/4.png" alt="super"/>
-                                </div>
-                                <div class="progress-bar-container">
-                                    <span class="desc">Vote count: 45</span>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-midsuccess" role="progressbar" aria-valuenow="45"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:45%">
-                                            <span class="">45%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mood">
-                                <div class="img-container">
-                                    <img src="../img/5.png" alt="super"/>
-                                </div>
-                                <div class="progress-bar-container">
-                                    <span class="desc">Vote count: 25</span>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:25%">
-                                            <span class="">25%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <%}%>
                         </div>
 
                         <a href="stats.html" class="btn btn-default btn-block">View more reports</a>
@@ -340,7 +302,7 @@
 </footer>
 
 <!-- jQuery -->
-<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 
 <!-- togggle.js -->
 <script src="../js/toggle.js"></script>
