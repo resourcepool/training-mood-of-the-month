@@ -53,7 +53,7 @@ public class MotmJDBC {
 
 
                 while (result.next()){
-                    MOTM motm = new MOTM(result.getString("title"), result.getString("message_template"), result.getString("page_template"));
+                    MOTM motm = new MOTM(result.getInt("uuid"), result.getString("title"), result.getString("message_template"), result.getString("page_template"));
                     motmList.add(motm);
 
                     System.out.println(motm);

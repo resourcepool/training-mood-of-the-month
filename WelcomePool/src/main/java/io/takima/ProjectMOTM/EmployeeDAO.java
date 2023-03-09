@@ -37,7 +37,7 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET name = ? , update_at = ? WHERE id = ?";
+            String sql = "UPDATE employee SET name = ? , update_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newName);
@@ -60,7 +60,7 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET email = ? , update_at = ? WHERE id = ?";
+            String sql = "UPDATE employee SET email = ? , update_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newEmail);
@@ -83,7 +83,7 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET birthday = ? , update_at = ? WHERE id = ?";
+            String sql = "UPDATE employee SET birthday = ? , update_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setDate(1, newBirthday);
@@ -106,7 +106,7 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "DELETE FROM employee WHERE id = ?";
+            String sql = "DELETE FROM employee WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setInt(1, e.getUuid());
