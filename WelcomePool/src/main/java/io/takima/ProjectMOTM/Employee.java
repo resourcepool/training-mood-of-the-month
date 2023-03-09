@@ -1,39 +1,25 @@
 package io.takima.ProjectMOTM;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.util.Date;
-import org.hibernate.annotations.*;
-import lombok.*;
-import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.Table;
-import javax.persistence.Id;
 
 
-
-@Table(name="Employee", schema="projectmotm")
-@Setter
 @Getter
-@Entity
+@Setter
+@EqualsAndHashCode
 public class Employee {
-    //@Column(name="uuid", unique = true, nullable = false)
-    //@GeneratedValue
-    //@Id
-    //private Integer uuid;
-    @Column(name="name", nullable = false)
+    private Integer uuid;
     private String name;
-    @Column(name="email", nullable = false)
     private String email;
-    @Column(name="birthdate", nullable = false)
     private Date birthdate;
-    @Column(name="created_at", nullable = false)
     private LocalDate created_at;
-    @Column(name="updated_at", nullable = false)
     private LocalDate updated_at;
-
-    public Employee(String name, String email, Date dateBirth) {
+    public Employee(Integer uuid, String name, String email, Date dateBirth) {
+        this.uuid = uuid;
         this.name = name;
         this.email = email;
         this.birthdate = dateBirth;
@@ -43,6 +29,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
+                "id='" + uuid + '\'' +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", birthdate=" + birthdate +
