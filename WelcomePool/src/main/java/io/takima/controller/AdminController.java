@@ -17,6 +17,7 @@ public class AdminController extends HttpServlet {
 
     AdminService adminService = new AdminService();
 
+    // TODO : il faut trouver comment initialiser la base : vide ou avec des données, si avec des données il faut initialiser UNE SEULE fois et pas à chaque refresh de l'uri /admin
     @Override
     public void init() {
         RecordsOnInitService recordsOnInitService = new RecordsOnInitService();
@@ -27,7 +28,6 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("Employee", adminService.getEmployee());
         req.setAttribute("Employees", adminService.getEmployees());
 
         req.setAttribute("GradeStats", adminService.getGradeStats());
