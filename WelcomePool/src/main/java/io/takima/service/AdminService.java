@@ -35,11 +35,11 @@ public class AdminService {
 
 
     public int getEmployeeCount() {
-        return new ArrayList<Employee>(Arrays.asList(
-                new Employee("Jackie", "jackie@jackie.com", new Date(1994,10,14)),
-                new Employee("Patrick", "patrick@jackie.com", new Date(1978,2,4)),
-                new Employee("Pejman", "pejman@jackie.com", new Date(2000,10,12))
-        )).size();
+
+        EmployeeService employeeService = new EmployeeService();
+        ArrayList<Employee> employeeArrayList = employeeService.getEmployees();
+
+        return employeeArrayList.size();
     }
 
     public int getMOTMCount() {
