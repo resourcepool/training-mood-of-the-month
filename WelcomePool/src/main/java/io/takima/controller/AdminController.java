@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @SuppressWarnings("serial")
-@WebServlet("/")
+@WebServlet("/admin")
 public class AdminController extends HttpServlet {
 
     AdminService adminService = new AdminService();

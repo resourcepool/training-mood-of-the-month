@@ -144,11 +144,11 @@ body {
           color: #999999; }
         body #stats .details .mood .progress-bar-container .progress {
           background-color: rgba(255, 255, 255, 0.05) !important; }
-        body #stats .details .mood .progress-bar-container .progress-bar-midsuccess {
+        body #stats .details .mood .progress-bar-container .progress-bar-4 {
           background-color: #8cd116 !important; }
-        body #stats .details .mood .progress-bar-container .progress-bar-neutral {
+        body #stats .details .mood .progress-bar-container .progress-bar-3 {
           background-color: #e5d716 !important; }
-        body #stats .details .mood .progress-bar-container .progress-bar-success {
+        body #stats .details .mood .progress-bar-container .progress-bar-5 {
           background-color: #3fcf19 !important; }
   body #dashboard {
     height: 100vh;

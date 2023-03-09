@@ -18,17 +18,11 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 
     <!-- Custom CSS -->
-<%--
-    <style><%@include file="css/bootstrap.css"%></style>
---%>
-    <style><%@include file="css/bootstrap-theme.css"%></style>
-    <style><%@include file="css/metisMenu.css"%></style>
-    <style><%@include file="css/style.css"%></style>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
 
     <!-- Custom Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <>
 </head>
 
 <body>
@@ -215,15 +209,17 @@
 
                         <div class="details">
                             <% for (GradeStats stats : gradeStats) {
-                                double showPercent = Math.round(stats.percent * 10000) / 100;%>
+                                double showPercent = Math.round(stats.percent * 10000) / 100;
+                                int gradeValue = (int)stats.grade.getValue();
+                            %>
                             <div class="mood">
                                 <div class="img-container">
-                                    <img src="img/<%=stats.grade.getValue()%>.png" alt="super"/>
+                                    <img src="img/<%=gradeValue%>.png" alt="super"/>
                                 </div>
                                 <div class="progress-bar-container">
                                     <span class="desc">Vote count: <%=stats.nb%></span>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="<%=stats.nb%>"
+                                        <div class="progress-bar progress-bar-<%=gradeValue%>" role="progressbar" aria-valuenow="<%=stats.nb%>"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<%=showPercent%>%">
                                             <span class=""><%=showPercent%>%</span>
                                         </div>
@@ -305,10 +301,10 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 
 <!-- togggle.js -->
-<script src="../js/toggle.js"></script>
+<script src="${pageContext.request.contextPath}/js/toggle.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </body>
 
