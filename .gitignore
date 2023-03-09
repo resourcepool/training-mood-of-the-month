@@ -32,7 +32,9 @@
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+**/out/
+out/
+WelcomePool/wildfly*
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

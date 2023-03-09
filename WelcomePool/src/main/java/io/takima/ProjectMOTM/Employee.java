@@ -26,6 +26,12 @@ public class Employee {
         this.created_at = java.time.LocalDate.now();
     }
 
+    public Employee(String name, String email, Date birthdate) {
+        this.name = name;
+        this.email = email;
+        this.birthdate = birthdate;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
