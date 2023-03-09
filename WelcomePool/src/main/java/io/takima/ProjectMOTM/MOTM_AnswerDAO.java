@@ -4,24 +4,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MotmJDBC {
+public class MOTM_AnswerDAO {
 
-    String dbURL = "jdbc:postgresql://localhost:5432/welcomepool";
-    String username = "postgres";
-    String password = "postgres";
-
-    // TODO : lomboker constructeurs
-
-    public MotmJDBC() {
+   /* public MOTM_AnswerDAO() {
     }
 
-    public MotmJDBC(String dbURL, String username, String password) {
-        this.dbURL = dbURL;
-        this.username = username;
-        this.password = password;
-    }
-
-    public void updateMotm(String sqlQuery) {
+    public void updateMotmAnswer(String sqlQuery) {
 
         try {
             Connection conn = DriverManager.getConnection(dbURL, username, password);
@@ -38,9 +26,9 @@ public class MotmJDBC {
         }
     }
 
-    public List<MOTM> getAllMotm(String sqlQuery) {
+    public List<MOTM_Answer> getAllMotmAnswer(String sqlQuery) {
 
-        List<MOTM> motmList = new ArrayList<>();
+        List<MOTM_Answer> motmAnswerList = new ArrayList<>();
 
         try {
             Connection conn = DriverManager.getConnection(dbURL, username, password);
@@ -51,24 +39,20 @@ public class MotmJDBC {
                 Statement statement = conn.createStatement();
                 ResultSet result = statement.executeQuery(sqlQuery);
 
-
                 while (result.next()){
-                    MOTM motm = new MOTM(result.getString("title"), result.getString("message_template"), result.getString("page_template"));
-                    motmList.add(motm);
+                    MOTM_Answer motm = new MOTM_Answer(result.getString("message"), result.getInt("grade"), result.getInt("Employee_id"),result.getInt("MOTM_id"));
+                    motmAnswerList.add(motm);
 
-                    System.out.println(motm);
+                    System.out.println(motmAnswerList);
                 }
 
                 conn.close();
                 System.out.println("Connection closed");
-
-
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return motmList;
-    }
-
+        return motmAnswerList;
+    }*/
 }

@@ -1,8 +1,6 @@
 package io.takima.ProjectMOTM;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -11,6 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @EqualsAndHashCode
+@ToString
 public class Employee {
     private Integer uuid;
     private String name;
@@ -30,17 +29,5 @@ public class Employee {
         this.name = name;
         this.email = email;
         this.birthdate = birthdate;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id='" + uuid + '\'' +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", birthdate=" + birthdate +
-                ", created_at=" + created_at +
-                ", updated_at=" + updated_at +
-                '}';
     }
 }

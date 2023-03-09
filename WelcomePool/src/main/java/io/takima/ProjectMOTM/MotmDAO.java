@@ -4,26 +4,27 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDAO {
+public class MotmDAO{
+
     private Connection connection;
-    public EmployeeDAO() {
+    public MotmDAO() {
     }
 
-    public void insertEmployee(Employee e) {
+    public void insertMotm(MOTM m) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "INSERT INTO employee (name, email, birthdate, created_at) VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO motm (title, message_template, page_template, created_at) VALUES(?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, e.getName());
-            statement.setString(2, e.getEmail());
-            statement.setDate(3, (Date) e.getBirthdate());
+            statement.setString(1, m.getTitle());
+            statement.setString(2, m.getMessage_template());
+            statement.setString(3, m.getPage_template());
             statement.setDate(4, date);
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to insert employee ");
+                throw new SQLException("Failed to insert motm ");
             }
             statement.close();
             connection.close();
@@ -32,20 +33,20 @@ public class EmployeeDAO {
             ex.printStackTrace();
         }
     }
-    public void updateNameEmployee(Employee e, String newName) {
+    public void updateTitleMotm(MOTM m, String title) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET name = ? , update_at = ? WHERE uuid = ?";
+            String sql = "UPDATE motm SET title = ? , update_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, newName);
+            statement.setString(1, title);
             statement.setDate(2, date);
-            statement.setInt(3, e.getUuid());
+            statement.setInt(3, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update name employee with ID: " + e.getUuid());
+                throw new SQLException("Failed to update \"title\" motm with ID: " + m.getUuid());
             }
             statement.close();
             connection.close();
@@ -55,20 +56,20 @@ public class EmployeeDAO {
         }
     }
 
-    public void updateEmailEmployee(Employee e, String newEmail) {
+    public void updateMessageMotm(MOTM m, String newMsg) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET email = ? , update_at = ? WHERE uuid = ?";
+            String sql = "UPDATE motm SET message_template = ? , update_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, newEmail);
+            statement.setString(1, newMsg);
             statement.setDate(2, date);
-            statement.setInt(3, e.getUuid());
+            statement.setInt(3, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update email employee with ID: " + e.getUuid());
+                throw new SQLException("Failed to update \"message_template\" motm with ID: " + m.getUuid());
             }
             statement.close();
             connection.close();
@@ -78,20 +79,20 @@ public class EmployeeDAO {
         }
     }
 
-    public void updateBirthdayEmployee(Employee e, Date newBirthday) {
+    public void updatePageMotm(MOTM m, String newPage) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET birthday = ? , update_at = ? WHERE uuid = ?";
+            String sql = "UPDATE motm SET page_template = ? , update_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setDate(1, newBirthday);
+            statement.setString(1, newPage);
             statement.setDate(2, date);
-            statement.setInt(3, e.getUuid());
+            statement.setInt(3, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update birthday employee with ID: " + e.getUuid());
+                throw new SQLException("Failed to update \"page_template\" motm with ID: " + m.getUuid());
             }
             statement.close();
             connection.close();
@@ -101,18 +102,18 @@ public class EmployeeDAO {
         }
     }
 
-    public void DeleteEmployee(Employee e) {
+    public void DeleteMotm(MOTM m) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "DELETE FROM employee WHERE uuid = ?";
+            String sql = "DELETE FROM motm WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, e.getUuid());
+            statement.setInt(1, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to delete employee with ID: " + e.getUuid());
+                throw new SQLException("Failed to delete employee with ID: " + m.getUuid());
             }
             statement.close();
             connection.close();
@@ -123,28 +124,27 @@ public class EmployeeDAO {
     }
 
 
-    public List<Employee> getAllEmployees() {
+    public List<MOTM> getAllMotm() {
 
-        List<Employee> employeeList = new ArrayList<>();
+        List<MOTM> motmList = new ArrayList<>();
+
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sqlQuery = "SELECT * FROM employee";
+            String sqlQuery = "SELECT * FROM motm";
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate"));
-                employeeList.add(employee);
-
-                System.out.println(employee);
+                MOTM motm = new MOTM(result.getInt("uuid"), result.getString("title"), result.getString("message_template"), result.getString("page_template"));
+                motmList.add(motm);
+                System.out.println(motm);
             }
-            result.close();
             connection.close();
             System.out.println("Connection closed");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-        return employeeList;
+        return motmList;
     }
+
 }
