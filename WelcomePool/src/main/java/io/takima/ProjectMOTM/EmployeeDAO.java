@@ -1,10 +1,17 @@
 package io.takima.ProjectMOTM;
 
+import javax.annotation.Resource;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAO {
+
+    @Resource(name = "PostgresDS")
+    private DataSource dataSource;
+
     private Connection connection;
     public EmployeeDAO() {
     }
@@ -123,11 +130,14 @@ public class EmployeeDAO {
     }
 
 
-    public List<Employee> getAllEmployees() {
+    public ArrayList<Employee> getAllEmployees() {
 
-        List<Employee> employeeList = new ArrayList<>();
+        ArrayList<Employee> employeeList = new ArrayList<>();
+
         try {
-            connection = DbConfig.getConnection();
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
             System.out.println("Connected");
             String sqlQuery = "SELECT * FROM employee";
             Statement statement = connection.createStatement();
@@ -141,8 +151,8 @@ public class EmployeeDAO {
             result.close();
             connection.close();
             System.out.println("Connection closed");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return employeeList;
