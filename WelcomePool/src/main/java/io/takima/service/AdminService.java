@@ -1,6 +1,7 @@
 package io.takima.service;
 
 import io.takima.ProjectMOTM.Employee;
+import io.takima.ProjectMOTM.MOTM;
 import io.takima.ProjectMOTM.MOTM_Answer;
 import io.takima.controller.GradeStats;
 
@@ -30,5 +31,21 @@ public class AdminService {
                 new GradeStats(MOTM_Answer.Grade.B, 40, 0.4),
                 new GradeStats(MOTM_Answer.Grade.A, 25, 0.25)
         ));
+    }
+
+
+    public int getEmployeeCount() {
+        return new ArrayList<Employee>(Arrays.asList(
+                new Employee("Jackie", "jackie@jackie.com", new Date(1994,10,14)),
+                new Employee("Patrick", "patrick@jackie.com", new Date(1978,2,4)),
+                new Employee("Pejman", "pejman@jackie.com", new Date(2000,10,12))
+        )).size();
+    }
+
+    public int getMOTMCount() {
+        return new ArrayList<MOTM>(Arrays.asList(
+                new MOTM(1,"Mars", "MOTM de mars", "template1"),
+                new MOTM(1,"Mars", "MOTM de mars", "template1")
+        )).size();
     }
 }
