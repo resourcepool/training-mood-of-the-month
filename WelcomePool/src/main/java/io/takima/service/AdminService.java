@@ -10,7 +10,7 @@ import java.util.Date;
 public class AdminService {
 
     public Employee getEmployee() {
-        return new Employee("Jackie", "jackie@jackie.com", new Date(1994,10,14));
+        return new Employee("Jackie", "jackie@jackie.com", java.time.LocalDate.of(1994,10,14));
     }
 
     public ArrayList<Employee> getEmployees() {

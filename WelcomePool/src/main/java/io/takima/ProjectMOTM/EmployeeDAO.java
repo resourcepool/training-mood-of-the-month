@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +22,15 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "INSERT INTO employee (name, email, birthdate, created_at) VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO employee (uuid, name, email, birthdate, created_at) VALUES(?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, e.getName());
-            statement.setString(2, e.getEmail());
-            statement.setDate(3, (Date) e.getBirthdate());
-            statement.setDate(4, date);
+            Date date_birth = Date.valueOf(e.getBirthdate());
+            statement.setInt(1, e.getUuid());
+            statement.setString(2, e.getName());
+            statement.setString(3, e.getEmail());
+            statement.setDate(4, date_birth);
+            statement.setDate(5, date);
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to insert employee ");
@@ -44,7 +47,7 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET name = ? , update_at = ? WHERE uuid = ?";
+            String sql = "UPDATE employee SET name = ? , updated_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newName);
@@ -67,7 +70,7 @@ public class EmployeeDAO {
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET email = ? , update_at = ? WHERE uuid = ?";
+            String sql = "UPDATE employee SET email = ? , updated_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newEmail);
@@ -85,20 +88,20 @@ public class EmployeeDAO {
         }
     }
 
-    public void updateBirthdayEmployee(Employee e, Date newBirthday) {
+    public void updateBirthdayEmployee(Employee e, LocalDate newBirthday) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE employee SET birthday = ? , update_at = ? WHERE uuid = ?";
+            String sql = "UPDATE employee SET birthdate = ? , updated_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setDate(1, newBirthday);
+            statement.setDate(1, java.sql.Date.valueOf(newBirthday));
             statement.setDate(2, date);
             statement.setInt(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update birthday employee with ID: " + e.getUuid());
+                throw new SQLException("Failed to update birthdate employee with ID: " + e.getUuid());
             }
             statement.close();
             connection.close();
@@ -143,7 +146,7 @@ public class EmployeeDAO {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate"));
+                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate(), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
                 employeeList.add(employee);
 
                 System.out.println(employee);
