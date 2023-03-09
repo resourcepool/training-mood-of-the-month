@@ -1,8 +1,14 @@
 package io.takima.ProjectMOTM;
 
+import javax.annotation.Resource;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.*;
 
 public class RecordsJDBC {
+
+    @Resource(name = "PostgresDS")
+    private DataSource dataSource;
 
     String dbURL = "jdbc:postgresql://localhost:5432/welcomepool";
     String username = "postgres";
@@ -20,12 +26,14 @@ public class RecordsJDBC {
     public void insertRecordsInEmployeeOnInit(){
 
         try {
-            Connection conn = DriverManager.getConnection(dbURL, username, password);
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
 
-            if (conn != null) {
+            if (connection != null) {
                 System.out.println("Connected");
                 System.out.println("Inserting records in Employee before everything else");
-                Statement statement = conn.createStatement();
+                Statement statement = connection.createStatement();
 
                 String sqlQuery = "INSERT INTO employee (name, email, birthdate) VALUES ('Loic Ortola', 'lortola@e-biz', '10/02/1988')";
                 statement.executeUpdate(sqlQuery);
@@ -47,46 +55,50 @@ public class RecordsJDBC {
                 statement.executeUpdate(sqlQuery);
                 System.out.println("New record inserted");
 
-                conn.close();
+                connection.close();
                 System.out.println("Connection closed");
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     public void flushEmployeeOnInit() {
         try {
-            Connection conn = DriverManager.getConnection(dbURL, username, password);
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
 
-            if (conn != null) {
+            if (connection != null) {
                 System.out.println("Connected");
 
-                Statement statement = conn.createStatement();
+                Statement statement = connection.createStatement();
                 System.out.println("Clean employee table");
                 String sqlQuery = "DELETE FROM employee;";
                 statement.executeUpdate(sqlQuery);
                 System.out.println("Connection closed");
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     public void flushMotmOnInit() {
         try {
-            Connection conn = DriverManager.getConnection(dbURL, username, password);
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
 
-            if (conn != null) {
+            if (connection != null) {
                 System.out.println("Connected");
 
-                Statement statement = conn.createStatement();
+                Statement statement = connection.createStatement();
                 System.out.println("Clean motm table");
                 String sqlQuery = "DELETE FROM MOTM;";
                 statement.executeUpdate(sqlQuery);
                 System.out.println("Connection closed");
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
