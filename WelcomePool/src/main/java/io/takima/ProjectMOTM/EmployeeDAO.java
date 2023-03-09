@@ -5,24 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAO {
-    // TODO Connect DB : open statement close
-
-    // TODO Statement : insert et select
-
-    // TODO
-
     private Connection connection;
     public EmployeeDAO() {
-        try{
-            connection = DbConfig.getConnection();
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
     }
 
     public void insertEmployee(Employee e) {
 
         try {
+            connection = DbConfig.getConnection();
             System.out.println("Connected");
             String sql = "INSERT INTO employee (name, email, birthdate, created_at) VALUES(?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -45,6 +35,7 @@ public class EmployeeDAO {
     public void updateNameEmployee(Employee e, String newName) {
 
         try {
+            connection = DbConfig.getConnection();
             System.out.println("Connected");
             String sql = "UPDATE employee SET name = ? , update_at = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -67,6 +58,7 @@ public class EmployeeDAO {
     public void updateEmailEmployee(Employee e, String newEmail) {
 
         try {
+            connection = DbConfig.getConnection();
             System.out.println("Connected");
             String sql = "UPDATE employee SET email = ? , update_at = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -89,6 +81,7 @@ public class EmployeeDAO {
     public void updateBirthdayEmployee(Employee e, Date newBirthday) {
 
         try {
+            connection = DbConfig.getConnection();
             System.out.println("Connected");
             String sql = "UPDATE employee SET birthday = ? , update_at = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -111,6 +104,7 @@ public class EmployeeDAO {
     public void DeleteEmployee(Employee e) {
 
         try {
+            connection = DbConfig.getConnection();
             System.out.println("Connected");
             String sql = "DELETE FROM employee WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -134,26 +128,19 @@ public class EmployeeDAO {
         List<Employee> employeeList = new ArrayList<>();
 
         try {
-            if (connection != null) {
-                System.out.println("Connected");
+            connection = DbConfig.getConnection();
+            System.out.println("Connected");
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sqlQuery);
+            while (result.next()){
+                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate"));
+                employeeList.add(employee);
 
-                Statement statement = connection.createStatement();
-                ResultSet result = statement.executeQuery(sqlQuery);
-
-
-                while (result.next()){
-                    Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate"));
-                    employeeList.add(employee);
-
-                    System.out.println(employee);
-                }
-
-                result.close();
-                connection.close();
-                System.out.println("Connection closed");
-
-
+                System.out.println(employee);
             }
+            result.close();
+            connection.close();
+            System.out.println("Connection closed");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
