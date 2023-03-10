@@ -4,11 +4,7 @@ https://marco.dev/use-postgresql-with-wildfly
 
 ___
 
-Download the PostgreSQL driver
-Download a compatible drive with your instance (e.g. PostgreSQL JDBC 4.2 Driver, 42.3.1):
-
-https://jdbc.postgresql.org/download.html
-
+Use your current postgresql driver.=(.jar)
 ____
 Add PostgreSQL driver to WildFly
 In [WILDFLY_HOME]/modules
@@ -24,12 +20,12 @@ In /org/postgresql/main
 
 create the module.xml file
 
+```xml
 <?xml version='1.0' encoding='UTF-8'?> 
 
 <module xmlns="urn:jboss:module:1.1" name="org.postgresql"> 
-
     <resources> 
-    <!--the name of your driver --> 
+        <!--the name of your driver --> 
         <resource-root path="postgresql-42.3.1.jar"/> 
     </resources> 
  
@@ -38,6 +34,8 @@ create the module.xml file
         <module name="javax.transaction.api"/> 
     </dependencies> 
 </module> 
+```
+
 change the filename according to your jdbc driver
 
 ___
@@ -52,7 +50,7 @@ Add the postgresql datasource, update according to your configuration:
 
 This datasource references a driver names ‘postgresql’ that we have to add, in the section <datasources><drivers> :
 
-```
+```xml
         <subsystem xmlns="urn:jboss:domain:datasources:7.0">
             <datasources>
                 <!-- 1. Select Postgres -->
