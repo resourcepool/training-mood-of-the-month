@@ -14,9 +14,9 @@
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
         <!-- Chemin vers les entités -->
-        <mapping class="io.takima.ProjectMOTM.Employee"/>
-        <mapping class="io.takima.ProjectMOTM.MOTM"/>
-        <mapping class="io.takima.ProjectMOTM.MOTM_Answer"/>
+        <mapping class="io.takima.dao.models.Employee"/>
+        <mapping class="io.takima.dao.models.MOTM"/>
+        <mapping class="io.takima.dao.models.MOTM_Answer"/>
 
         <!-- Autres propriétés de configuration -->
         <property name="hibernate.show_sql">true</property>

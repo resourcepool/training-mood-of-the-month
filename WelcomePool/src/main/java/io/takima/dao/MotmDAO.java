@@ -1,7 +1,7 @@
 package io.takima.dao;
 
-import io.takima.ProjectMOTM.DbConfig;
-import io.takima.ProjectMOTM.MOTM;
+import io.takima.DbConfig;
+import io.takima.dao.models.MOTM;
 
 import javax.annotation.Resource;
 import javax.naming.InitialContext;

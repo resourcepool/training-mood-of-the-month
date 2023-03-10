@@ -1,6 +1,6 @@
 package io.takima.controller;
 
-import io.takima.ProjectMOTM.Employee;
+import io.takima.dao.models.Employee;
 import io.takima.service.EmployeeService;
 
 import javax.servlet.RequestDispatcher;

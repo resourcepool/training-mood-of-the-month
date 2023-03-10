@@ -1,6 +1,6 @@
 package io.takima.service;
 
-import io.takima.ProjectMOTM.Employee;
+import io.takima.dao.models.Employee;
 import io.takima.dao.EmployeeDAO;
 
 import java.time.LocalDate;

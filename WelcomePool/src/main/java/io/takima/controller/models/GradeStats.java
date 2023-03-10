@@ -1,6 +1,6 @@
-package io.takima.controller;
+package io.takima.controller.models;
 
-import io.takima.ProjectMOTM.MOTM_Answer;
+import io.takima.dao.models.MOTM_Answer;
 
 public class GradeStats {
 

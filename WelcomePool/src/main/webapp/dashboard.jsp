@@ -1,8 +1,8 @@
-<%@ page import="io.takima.ProjectMOTM.MOTM" %>
-<%@ page import="io.takima.ProjectMOTM.MOTM_Answer" %>
-<%@ page import="io.takima.ProjectMOTM.Employee" %>
+<%@ page import="io.takima.dao.models.MOTM" %>
+<%@ page import="io.takima.dao.models.MOTM_Answer" %>
+<%@ page import="io.takima.dao.models.Employee" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="io.takima.controller.GradeStats" %>
+<%@ page import="io.takima.controller.models.GradeStats" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

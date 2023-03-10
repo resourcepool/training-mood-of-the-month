@@ -1,6 +1,6 @@
 package io.takima.service;
 
-import io.takima.ProjectMOTM.MOTM;
+import io.takima.dao.models.MOTM;
 import io.takima.dao.MotmDAO;
 
 import java.util.ArrayList;

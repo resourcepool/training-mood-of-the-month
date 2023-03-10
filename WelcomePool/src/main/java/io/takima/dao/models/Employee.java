@@ -1,4 +1,4 @@
-package io.takima.ProjectMOTM;
+package io.takima.dao.models;
 
 import lombok.*;
 

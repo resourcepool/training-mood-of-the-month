@@ -1,4 +1,4 @@
-package io.takima.ProjectMOTM;
+package io.takima;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,15 +1,12 @@
 package io.takima.service;
 
-import io.takima.ProjectMOTM.Employee;
-import io.takima.ProjectMOTM.MOTM;
-import io.takima.ProjectMOTM.MOTM_Answer;
-import io.takima.controller.GradeStats;
+import io.takima.dao.models.MOTM;
+import io.takima.dao.models.MOTM_Answer;
+import io.takima.controller.models.GradeStats;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Date;
 
 public class DashBoardService {
 
