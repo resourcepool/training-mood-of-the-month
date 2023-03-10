@@ -26,9 +26,9 @@ CREATE TABLE "motm" (
   "updated_at" timestamp
 );
 
-ALTER TABLE "motm_answer" ADD FOREIGN KEY ("employee_id") REFERENCES "employee" ("uuid");
+--ALTER TABLE "motm_answer" ADD FOREIGN KEY ("employee_id") REFERENCES "employee" ("uuid");
 
-ALTER TABLE "motm_answer" ADD FOREIGN KEY ("motm_id") REFERENCES "motm" ("uuid");
+--ALTER TABLE "motm_answer" ADD FOREIGN KEY ("motm_id") REFERENCES "motm" ("uuid");
 
 INSERT INTO public.employee(
     uuid, name, email, birthdate, created_at, updated_at)
