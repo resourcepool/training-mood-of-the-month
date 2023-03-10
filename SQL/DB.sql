@@ -1,14 +1,14 @@
 CREATE TABLE "employee" (
-  "uuid" varchar PRIMARY KEY,
+  "uuid" varchar UNIQUE PRIMARY KEY,
   "name" varchar,
-  "email" varchar,
+  "email" varchar UNIQUE NOT NULL,
   "birthdate" timestamp,
   "created_at" timestamp,
   "updated_at" timestamp
 );
 
 CREATE TABLE "motm_answer" (
-  "uuid" varchar PRIMARY KEY,
+  "uuid" varchar UNIQUE PRIMARY KEY,
   "message" varchar,
   "grade" integer,
   "employee_id" varchar,
@@ -18,7 +18,7 @@ CREATE TABLE "motm_answer" (
 );
 
 CREATE TABLE "motm" (
-  "uuid" varchar PRIMARY KEY,
+  "uuid" varchar UNIQUE PRIMARY KEY,
   "title" varchar,
   "message_template" varchar,
   "page_template" varchar,
