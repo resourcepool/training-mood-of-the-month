@@ -3,6 +3,8 @@ package io.takima.service;
 import io.takima.ProjectMOTM.MOTM_Answer;
 import io.takima.controller.dao.MOTM_AnswerDAO;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MOTM_AnswerService {
@@ -27,5 +29,10 @@ public class MOTM_AnswerService {
         List<MOTM_Answer> motmAnswerList = motm_AnswerDAO.getAllMotmAnswer();
 
         return motmAnswerList;
+    }
+
+    public ArrayList<MOTM_Answer> getMotmAnswers() {
+
+        return new ArrayList<>(Arrays.asList(new MOTM_Answer("hello", MOTM_Answer.Grade.C, 1, 1)));
     }
 }

@@ -1,6 +1,7 @@
 package io.takima.service;
 
 import io.takima.ProjectMOTM.Employee;
+import io.takima.ProjectMOTM.MOTM;
 import io.takima.ProjectMOTM.MOTM_Answer;
 import io.takima.controller.GradeStats;
 

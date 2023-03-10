@@ -1,6 +1,5 @@
 package io.takima.controller;
 
-import io.takima.ProjectMOTM.RecordsOnInitService;
 import io.takima.service.AdminService;
 
 import javax.servlet.RequestDispatcher;
@@ -20,8 +19,8 @@ public class AdminController extends HttpServlet {
     // TODO : il faut trouver comment initialiser la base : vide ou avec des données, si avec des données il faut initialiser UNE SEULE fois et pas à chaque refresh de l'uri /admin
     @Override
     public void init() {
-        RecordsOnInitService recordsOnInitService = new RecordsOnInitService();
-        recordsOnInitService.onInit();
+//        RecordsOnInitService recordsOnInitService = new RecordsOnInitService();
+//        recordsOnInitService.onInit();
         System.out.println("Servlet initialized successfully");
     }
 

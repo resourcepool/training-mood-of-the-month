@@ -19,6 +19,7 @@ public class MOTM_Answer {
 
     // TODO : vérifier que dans la table Postgres on a une colonne MOTM_id
 
+    // TODO : MOTM_Answer : corriger le constructeur
 
     public enum Grade {
         A(5.0),
@@ -54,8 +55,8 @@ public class MOTM_Answer {
     private LocalDate created_at;
     private LocalDate updated_at;
 
-    public MOTM_Answer(Integer uuid, String message, Grade grade, Integer Employee_id, Integer MOTM_id) {
-        this.uuid = uuid;
+    public MOTM_Answer(String message, Grade grade, Integer Employee_id, Integer MOTM_id) {
+
         this.message = message;
         this.grade = grade;
         this.Employee_id = Employee_id;
