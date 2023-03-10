@@ -25,7 +25,7 @@ public class MOTM_AnswerDAO {
             Connection connection = dataSource.getConnection();
             System.out.println("Connected");
 
-            String sql = "INSERT INTO motm_answer (uuid, message, grade, Employee_id, MOTM_id, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO motm_answer (uuid, message, grade, employee_id, motm_id, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             Date createdAt = java.sql.Date.valueOf(mAnswer.getCreated_at());

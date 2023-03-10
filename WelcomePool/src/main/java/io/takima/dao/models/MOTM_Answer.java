@@ -61,19 +61,13 @@ public class MOTM_Answer {
         this.message = message;
         this.grade = grade;
         this.Employee_id = Employee_id;
-        if (MOTM_id != null) {
-            this.MOTM_id = MOTM_id;
-        } else
-        {
-            this.MOTM_id = "1";
-        }
+        this.MOTM_id = MOTM_id;
         this.created_at = java.time.LocalDate.now();
         this.updated_at = java.time.LocalDate.now();
     }
 
     public MOTM_Answer() {
         this.uuid = UUID.randomUUID().toString();
-        this.MOTM_id = "1";
         this.created_at = java.time.LocalDate.now();
         this.updated_at = java.time.LocalDate.now();
     }
