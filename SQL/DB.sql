@@ -1,5 +1,5 @@
-CREATE TABLE "Employee" (
-  "uuid" SERIAL PRIMARY KEY,
+CREATE TABLE "employee" (
+  "uuid" varchar PRIMARY KEY,
   "name" varchar,
   "email" varchar,
   "birthdate" timestamp,
@@ -7,18 +7,18 @@ CREATE TABLE "Employee" (
   "updated_at" timestamp
 );
 
-CREATE TABLE "MOTM_Answer" (
-  "uuid" SERIAL PRIMARY KEY,
+CREATE TABLE "motm_answer" (
+  "uuid" varchar PRIMARY KEY,
   "message" varchar,
   "grade" integer,
-  "Employee_id" integer,
-  "MOTM_id" integer,
+  "employee_id" varchar,
+  "motm_id" varchar,
   "created_at" timestamp,
   "updated_at" timestamp
 );
 
-CREATE TABLE "MOTM" (
-  "uuid" SERIAL PRIMARY KEY,
+CREATE TABLE "motm" (
+  "uuid" varchar PRIMARY KEY,
   "title" varchar,
   "message_template" varchar,
   "page_template" varchar,
@@ -26,6 +26,6 @@ CREATE TABLE "MOTM" (
   "updated_at" timestamp
 );
 
-ALTER TABLE "MOTM_Answer" ADD FOREIGN KEY ("Employee_id") REFERENCES "Employee" ("uuid");
+ALTER TABLE "motm_answer" ADD FOREIGN KEY ("employee_id") REFERENCES "employee" ("uuid");
 
-ALTER TABLE "MOTM_Answer" ADD FOREIGN KEY ("MOTM_id") REFERENCES "MOTM" ("uuid");
+ALTER TABLE "motm_answer" ADD FOREIGN KEY ("motm_id") REFERENCES "motm" ("uuid");

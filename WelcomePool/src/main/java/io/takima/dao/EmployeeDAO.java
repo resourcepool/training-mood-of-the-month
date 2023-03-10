@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class EmployeeDAO {
 
     @Resource(name = "PostgresDS")
-    private DataSource dataSource;
 
     private Connection connection;
     public EmployeeDAO() {
@@ -22,17 +21,22 @@ public class EmployeeDAO {
     public void insertEmployee(Employee e) {
 
         try {
-            connection = DbConfig.getConnection();
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
             System.out.println("Connected");
-            String sql = "INSERT INTO employee (uuid, name, email, birthdate, created_at) VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO employee (uuid, name, email, birthdate, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
+            Date createdAt = java.sql.Date.valueOf(e.getCreated_at());
+            Date updatedAt = java.sql.Date.valueOf(e.getUpdated_at());
             Date date_birth = Date.valueOf(e.getBirthdate());
-            statement.setInt(1, e.getUuid());
+            statement.setString(1, e.getUuid());
             statement.setString(2, e.getName());
             statement.setString(3, e.getEmail());
             statement.setDate(4, date_birth);
-            statement.setDate(5, date);
+            statement.setDate(5, createdAt);
+            statement.setDate(6, updatedAt);
+
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to insert employee ");
@@ -40,7 +44,7 @@ public class EmployeeDAO {
             statement.close();
             connection.close();
             System.out.println("Connection closed");
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -54,7 +58,7 @@ public class EmployeeDAO {
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newName);
             statement.setDate(2, date);
-            statement.setInt(3, e.getUuid());
+            statement.setString(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update name employee with ID: " + e.getUuid());
@@ -77,7 +81,7 @@ public class EmployeeDAO {
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newEmail);
             statement.setDate(2, date);
-            statement.setInt(3, e.getUuid());
+            statement.setString(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update email employee with ID: " + e.getUuid());
@@ -100,7 +104,7 @@ public class EmployeeDAO {
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setDate(1, java.sql.Date.valueOf(newBirthday));
             statement.setDate(2, date);
-            statement.setInt(3, e.getUuid());
+            statement.setString(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update birthdate employee with ID: " + e.getUuid());
@@ -121,7 +125,7 @@ public class EmployeeDAO {
             String sql = "DELETE FROM employee WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, e.getUuid());
+            statement.setString(1, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to delete employee with ID: " + e.getUuid());
@@ -148,7 +152,7 @@ public class EmployeeDAO {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate(), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
+                Employee employee = new Employee(result.getString("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate(), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
                 employeeList.add(employee);
 
                 System.out.println(employee);
