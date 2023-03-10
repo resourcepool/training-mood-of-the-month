@@ -1,40 +1,41 @@
-package io.takima.controller.dao;
+package io.takima.dao;
 
 import io.takima.ProjectMOTM.DbConfig;
-import io.takima.ProjectMOTM.MOTM;
+import io.takima.ProjectMOTM.Employee;
 
 import javax.annotation.Resource;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
-public class MotmDAO{
+public class EmployeeDAO {
 
     @Resource(name = "PostgresDS")
     private DataSource dataSource;
 
     private Connection connection;
-    public MotmDAO() {
+    public EmployeeDAO() {
     }
 
-    public void insertMotm(MOTM m) {
+    public void insertEmployee(Employee e) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "INSERT INTO motm (uuid, title, message_template, page_template, created_at) VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO employee (uuid, name, email, birthdate, created_at) VALUES(?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, m.getUuid());
-            statement.setString(2, m.getTitle());
-            statement.setString(3, m.getMessage_template());
-            statement.setString(4, m.getPage_template());
+            Date date_birth = Date.valueOf(e.getBirthdate());
+            statement.setInt(1, e.getUuid());
+            statement.setString(2, e.getName());
+            statement.setString(3, e.getEmail());
+            statement.setDate(4, date_birth);
             statement.setDate(5, date);
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to insert motm ");
+                throw new SQLException("Failed to insert employee ");
             }
             statement.close();
             connection.close();
@@ -43,20 +44,20 @@ public class MotmDAO{
             ex.printStackTrace();
         }
     }
-    public void updateTitleMotm(MOTM m, String title) {
+    public void updateNameEmployee(Employee e, String newName) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE motm SET title = ? , updated_at = ? WHERE uuid = ?";
+            String sql = "UPDATE employee SET name = ? , updated_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, title);
+            statement.setString(1, newName);
             statement.setDate(2, date);
-            statement.setInt(3, m.getUuid());
+            statement.setInt(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update \"title\" motm with ID: " + m.getUuid());
+                throw new SQLException("Failed to update name employee with ID: " + e.getUuid());
             }
             statement.close();
             connection.close();
@@ -66,20 +67,20 @@ public class MotmDAO{
         }
     }
 
-    public void updateMessageMotm(MOTM m, String newMsg) {
+    public void updateEmailEmployee(Employee e, String newEmail) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE motm SET message_template = ? , updated_at = ? WHERE uuid = ?";
+            String sql = "UPDATE employee SET email = ? , updated_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, newMsg);
+            statement.setString(1, newEmail);
             statement.setDate(2, date);
-            statement.setInt(3, m.getUuid());
+            statement.setInt(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update \"message_template\" motm with ID: " + m.getUuid());
+                throw new SQLException("Failed to update email employee with ID: " + e.getUuid());
             }
             statement.close();
             connection.close();
@@ -89,20 +90,20 @@ public class MotmDAO{
         }
     }
 
-    public void updatePageMotm(MOTM m, String newPage) {
+    public void updateBirthdayEmployee(Employee e, LocalDate newBirthday) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "UPDATE motm SET page_template = ? , updated_at = ? WHERE uuid = ?";
+            String sql = "UPDATE employee SET birthdate = ? , updated_at = ? WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setString(1, newPage);
+            statement.setDate(1, java.sql.Date.valueOf(newBirthday));
             statement.setDate(2, date);
-            statement.setInt(3, m.getUuid());
+            statement.setInt(3, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to update \"page_template\" motm with ID: " + m.getUuid());
+                throw new SQLException("Failed to update birthdate employee with ID: " + e.getUuid());
             }
             statement.close();
             connection.close();
@@ -112,18 +113,18 @@ public class MotmDAO{
         }
     }
 
-    public void DeleteMotm(MOTM m) {
+    public void DeleteEmployee(Employee e) {
 
         try {
             connection = DbConfig.getConnection();
             System.out.println("Connected");
-            String sql = "DELETE FROM motm WHERE uuid = ?";
+            String sql = "DELETE FROM employee WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, m.getUuid());
+            statement.setInt(1, e.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
-                throw new SQLException("Failed to delete employee with ID: " + m.getUuid());
+                throw new SQLException("Failed to delete employee with ID: " + e.getUuid());
             }
             statement.close();
             connection.close();
@@ -134,29 +135,31 @@ public class MotmDAO{
     }
 
 
-    public ArrayList<MOTM> getAllMotm() {
+    public ArrayList<Employee> getAllEmployees() {
 
-        ArrayList<MOTM> motmList = new ArrayList<>();
+        ArrayList<Employee> employeeList = new ArrayList<>();
 
         try {
             InitialContext ctx = new InitialContext();
             DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
             Connection connection = dataSource.getConnection();
             System.out.println("Connected");
-            String sqlQuery = "SELECT * FROM motm";
+            String sqlQuery = "SELECT * FROM employee";
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                MOTM motm = new MOTM(result.getInt("uuid"), result.getString("title"), result.getString("message_template"), result.getString("page_template"), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
-                motmList.add(motm);
-                System.out.println(motm);
+                Employee employee = new Employee(result.getInt("uuid"), result.getString("name"), result.getString("email"), result.getDate("birthdate").toLocalDate(), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
+                employeeList.add(employee);
+
+                System.out.println(employee);
             }
+            result.close();
             connection.close();
             System.out.println("Connection closed");
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return motmList;
-    }
 
+        return employeeList;
+    }
 }

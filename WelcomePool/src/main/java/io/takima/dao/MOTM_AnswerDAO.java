@@ -1,4 +1,4 @@
-package io.takima.controller.dao;
+package io.takima.dao;
 
 import io.takima.ProjectMOTM.DbConfig;
 import io.takima.ProjectMOTM.MOTM_Answer;

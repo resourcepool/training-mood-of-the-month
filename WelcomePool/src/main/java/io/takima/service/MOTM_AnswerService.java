@@ -1,7 +1,7 @@
 package io.takima.service;
 
 import io.takima.ProjectMOTM.MOTM_Answer;
-import io.takima.controller.dao.MOTM_AnswerDAO;
+import io.takima.dao.MOTM_AnswerDAO;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,7 +1,7 @@
 package io.takima.service;
 
 import io.takima.ProjectMOTM.Employee;
-import io.takima.controller.dao.EmployeeDAO;
+import io.takima.dao.EmployeeDAO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
