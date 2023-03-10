@@ -1,4 +1,6 @@
-package io.takima.ProjectMOTM;
+package io.takima.service;
+
+import io.takima.ProjectMOTM.RecordsJDBC;
 
 public class RecordsOnInitService {
 

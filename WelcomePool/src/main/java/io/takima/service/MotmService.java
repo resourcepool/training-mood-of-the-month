@@ -1,4 +1,7 @@
-package io.takima.ProjectMOTM;
+package io.takima.service;
+
+import io.takima.ProjectMOTM.MOTM;
+import io.takima.controller.dao.MotmDAO;
 
 import java.util.ArrayList;
 

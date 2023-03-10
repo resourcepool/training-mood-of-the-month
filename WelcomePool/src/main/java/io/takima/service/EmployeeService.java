@@ -1,13 +1,10 @@
 package io.takima.service;
 
 import io.takima.ProjectMOTM.Employee;
-import io.takima.ProjectMOTM.EmployeeDAO;
+import io.takima.controller.dao.EmployeeDAO;
 
 import java.time.LocalDate;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class EmployeeService {
     EmployeeDAO employeeDAO = new EmployeeDAO();
