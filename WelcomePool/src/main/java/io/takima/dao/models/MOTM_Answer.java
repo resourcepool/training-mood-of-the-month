@@ -3,6 +3,7 @@ package io.takima.dao.models;
 import lombok.*;
 import java.util.Date;
 import java.time.LocalDate;
+import java.util.UUID;
 //import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -47,21 +48,22 @@ public class MOTM_Answer {
             throw new IllegalArgumentException("No grade with value " + value);
         }
     }
-    private Integer uuid;
+    private String uuid;
     private String message;
     private Grade grade;
-    private Integer Employee_id;
-    private Integer MOTM_id;
+    private String Employee_id;
+    private String MOTM_id;
     private LocalDate created_at;
     private LocalDate updated_at;
 
-    public MOTM_Answer(String message, Grade grade, Integer Employee_id, Integer MOTM_id) {
-
+    public MOTM_Answer(String message, Grade grade, String Employee_id, String MOTM_id) {
+        this.uuid = UUID.randomUUID().toString();
         this.message = message;
         this.grade = grade;
         this.Employee_id = Employee_id;
         this.MOTM_id = MOTM_id;
         this.created_at = java.time.LocalDate.now();
+        this.updated_at = java.time.LocalDate.now();
     }
 
 }

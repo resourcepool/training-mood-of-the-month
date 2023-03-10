@@ -21,11 +21,11 @@ public class MOTM_AnswerDAO {
             String sql = "INSERT INTO motm_answer (uuid, message, grade, Employee_id, MOTM_id, created_at) VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, mAnswer.getUuid());
+            statement.setString(1, mAnswer.getUuid());
             statement.setString(2, mAnswer.getMessage());
             statement.setInt(3, (int) mAnswer.getGrade().getValue());
-            statement.setInt(4, mAnswer.getEmployee_id());
-            statement.setInt(5, mAnswer.getMOTM_id());
+            statement.setString(4, mAnswer.getEmployee_id());
+            statement.setString(5, mAnswer.getMOTM_id());
             statement.setDate(6, date);
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
@@ -48,7 +48,7 @@ public class MOTM_AnswerDAO {
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newMsg);
             statement.setDate(2, date);
-            statement.setInt(3, motmAnswer.getUuid());
+            statement.setString(3, motmAnswer.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update \"message\" motm_answer with ID: " + motmAnswer.getUuid());
@@ -71,7 +71,7 @@ public class MOTM_AnswerDAO {
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setInt(1, (int) newGrade.getValue());
             statement.setDate(2, date);
-            statement.setInt(3, motmAnswer.getUuid());
+            statement.setString(3, motmAnswer.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update \"grade\" motm_answer with ID: " + motmAnswer.getUuid());
@@ -92,7 +92,7 @@ public class MOTM_AnswerDAO {
             String sql = "DELETE FROM motm_answer WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, motmAnswer.getUuid());
+            statement.setString(1, motmAnswer.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to delete motm_answer with ID: " + motmAnswer.getUuid());
@@ -116,7 +116,7 @@ public class MOTM_AnswerDAO {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-               MOTM_Answer motm = new MOTM_Answer(result.getInt("uuid"), result.getString("message"), MOTM_Answer.Grade.fromValue((double) result.getInt("grade")), result.getInt("Employee_id"),result.getInt("MOTM_id"), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
+               MOTM_Answer motm = new MOTM_Answer(result.getString("uuid"), result.getString("message"), MOTM_Answer.Grade.fromValue((double) result.getInt("grade")), result.getString("Employee_id"), result.getString("MOTM_id"), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
                motmAnswerList.add(motm);
 
                 System.out.println(motmAnswerList);

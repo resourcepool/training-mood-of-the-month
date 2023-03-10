@@ -33,6 +33,6 @@ public class MOTM_AnswerService {
 
     public ArrayList<MOTM_Answer> getMotmAnswers() {
 
-        return new ArrayList<>(Arrays.asList(new MOTM_Answer("hello", MOTM_Answer.Grade.C, 1, 1)));
+        return new ArrayList<>(Arrays.asList(new MOTM_Answer("hello", MOTM_Answer.Grade.C, "1", "1")));
     }
 }

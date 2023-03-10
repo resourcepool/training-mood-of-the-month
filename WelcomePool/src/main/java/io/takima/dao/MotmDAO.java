@@ -26,7 +26,7 @@ public class MotmDAO{
             String sql = "INSERT INTO motm (uuid, title, message_template, page_template, created_at) VALUES(?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, m.getUuid());
+            statement.setString(1, m.getUuid());
             statement.setString(2, m.getTitle());
             statement.setString(3, m.getMessage_template());
             statement.setString(4, m.getPage_template());
@@ -52,7 +52,7 @@ public class MotmDAO{
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, title);
             statement.setDate(2, date);
-            statement.setInt(3, m.getUuid());
+            statement.setString(3, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update \"title\" motm with ID: " + m.getUuid());
@@ -75,7 +75,7 @@ public class MotmDAO{
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newMsg);
             statement.setDate(2, date);
-            statement.setInt(3, m.getUuid());
+            statement.setString(3, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update \"message_template\" motm with ID: " + m.getUuid());
@@ -98,7 +98,7 @@ public class MotmDAO{
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
             statement.setString(1, newPage);
             statement.setDate(2, date);
-            statement.setInt(3, m.getUuid());
+            statement.setString(3, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to update \"page_template\" motm with ID: " + m.getUuid());
@@ -119,7 +119,7 @@ public class MotmDAO{
             String sql = "DELETE FROM motm WHERE uuid = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-            statement.setInt(1, m.getUuid());
+            statement.setString(1, m.getUuid());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to delete employee with ID: " + m.getUuid());
@@ -146,7 +146,7 @@ public class MotmDAO{
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlQuery);
             while (result.next()){
-                MOTM motm = new MOTM(result.getInt("uuid"), result.getString("title"), result.getString("message_template"), result.getString("page_template"), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
+                MOTM motm = new MOTM(result.getString("uuid"), result.getString("title"), result.getString("message_template"), result.getString("page_template"), result.getDate("created_at").toLocalDate(), result.getDate("updated_at").toLocalDate());
                 motmList.add(motm);
                 System.out.println(motm);
             }

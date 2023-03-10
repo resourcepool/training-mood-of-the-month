@@ -13,8 +13,8 @@ public class DashBoardService {
 
     public MOTM getLastMotm() {
         return new ArrayList<MOTM>(Arrays.asList(
-                new MOTM(1,"MarsBB", "MOTM de mars", "template1"),
-                new MOTM(1,"MarsAA", "MOTM de mars", "template1")
+                new MOTM("qg","MarsBB", "MOTM de mars", "template1"),
+                new MOTM("ere","MarsAA", "MOTM de mars", "template1")
         )).stream().max(Comparator.comparing(MOTM::getCreated_at)).get();
     }
 
