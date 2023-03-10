@@ -1,4 +1,7 @@
-package io.takima.ProjectMOTM;
+package io.takima.controller.dao;
+
+import io.takima.ProjectMOTM.DbConfig;
+import io.takima.ProjectMOTM.MOTM_Answer;
 
 import java.sql.*;
 import java.util.ArrayList;

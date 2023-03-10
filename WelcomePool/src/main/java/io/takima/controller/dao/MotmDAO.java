@@ -1,4 +1,7 @@
-package io.takima.ProjectMOTM;
+package io.takima.controller.dao;
+
+import io.takima.ProjectMOTM.DbConfig;
+import io.takima.ProjectMOTM.MOTM;
 
 import javax.annotation.Resource;
 import javax.naming.InitialContext;
