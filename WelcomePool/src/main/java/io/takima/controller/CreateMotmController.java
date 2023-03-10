@@ -1,7 +1,7 @@
 package io.takima.controller;
 
-import io.takima.ProjectMOTM.MOTM;
-import io.takima.ProjectMOTM.MOTM_Answer;
+import io.takima.dao.models.MOTM;
+import io.takima.dao.models.MOTM_Answer;
 import io.takima.service.MOTM_AnswerService;
 
 import javax.servlet.RequestDispatcher;

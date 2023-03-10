@@ -36,6 +36,6 @@ public class MOTM_AnswerService {
 
     public ArrayList<MOTM_Answer> getMotmAnswers() {
 
-        return new ArrayList<>(Arrays.asList(new MOTM_Answer("message", MOTM_Answer.Grade.A, "test", 1, LocalDate.now(), LocalDate.now())));
+        return new ArrayList<>(Arrays.asList(new MOTM_Answer("message", MOTM_Answer.Grade.A, "test", "1", LocalDate.now(), LocalDate.now())));
     }
 }

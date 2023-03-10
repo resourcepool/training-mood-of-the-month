@@ -1,4 +1,4 @@
-package io.takima.ProjectMOTM;
+package io.takima.dao.models;
 
 import lombok.*;
 import java.util.Date;
@@ -56,7 +56,7 @@ public class MOTM_Answer {
     private LocalDate created_at;
     private LocalDate updated_at;
 
-    public MOTM_Answer(String message, Grade grade, String Employee_id, String MOTM_id) {
+    public MOTM_Answer(String message, Grade grade, String Employee_id, String MOTM_id, LocalDate created_at, LocalDate updated_at) {
         this.uuid = UUID.randomUUID().toString();
         this.message = message;
         this.grade = grade;
