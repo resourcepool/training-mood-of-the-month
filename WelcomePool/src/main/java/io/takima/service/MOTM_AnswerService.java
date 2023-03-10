@@ -1,4 +1,7 @@
-package io.takima.ProjectMOTM;
+package io.takima.service;
+
+import io.takima.ProjectMOTM.MOTM_Answer;
+import io.takima.controller.dao.MOTM_AnswerDAO;
 
 import java.util.List;
 
