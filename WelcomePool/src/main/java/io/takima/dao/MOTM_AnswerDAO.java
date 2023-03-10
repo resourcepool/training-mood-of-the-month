@@ -3,12 +3,16 @@ package io.takima.dao;
 import io.takima.DbConfig;
 import io.takima.dao.models.MOTM_Answer;
 
+import javax.annotation.Resource;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MOTM_AnswerDAO {
 
+    @Resource(name = "PostgresDS")
     private Connection connection;
     public MOTM_AnswerDAO() {
     }
@@ -16,17 +20,25 @@ public class MOTM_AnswerDAO {
     public void insertMotmAnswer(MOTM_Answer mAnswer) {
 
         try {
-            connection = DbConfig.getConnection();
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup("java:jboss/datasources/PostgresDS");
+            Connection connection = dataSource.getConnection();
             System.out.println("Connected");
-            String sql = "INSERT INTO motm_answer (uuid, message, grade, Employee_id, MOTM_id, created_at) VALUES(?, ?, ?, ?, ?, ?)";
+
+            String sql = "INSERT INTO motm_answer (uuid, message, grade, Employee_id, MOTM_id, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?, ?)";
+
             PreparedStatement statement = connection.prepareStatement(sql);
-            Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
+            Date createdAt = java.sql.Date.valueOf(mAnswer.getCreated_at());
+            Date updated_at = java.sql.Date.valueOf(mAnswer.getUpdated_at());
+
+
             statement.setString(1, mAnswer.getUuid());
             statement.setString(2, mAnswer.getMessage());
             statement.setInt(3, (int) mAnswer.getGrade().getValue());
             statement.setString(4, mAnswer.getEmployee_id());
             statement.setString(5, mAnswer.getMOTM_id());
-            statement.setDate(6, date);
+            statement.setDate(6, createdAt);
+            statement.setDate(7, updated_at);
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated == 0) {
                 throw new SQLException("Failed to insert motm_answer ");
@@ -34,7 +46,7 @@ public class MOTM_AnswerDAO {
             statement.close();
             connection.close();
             System.out.println("Connection closed");
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

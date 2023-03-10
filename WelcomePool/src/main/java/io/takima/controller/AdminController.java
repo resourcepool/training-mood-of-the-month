@@ -21,7 +21,7 @@ public class AdminController extends HttpServlet {
     public void init() {
 //        RecordsOnInitService recordsOnInitService = new RecordsOnInitService();
 //        recordsOnInitService.onInit();
-        System.out.println("Servlet initialized successfully");
+        System.out.println("Servlet Admin initialized successfully");
     }
 
     @Override

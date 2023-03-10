@@ -3,14 +3,17 @@ package io.takima.service;
 import io.takima.dao.models.MOTM_Answer;
 import io.takima.dao.MOTM_AnswerDAO;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class MOTM_AnswerService {
     MOTM_AnswerDAO motm_AnswerDAO = new MOTM_AnswerDAO();
-    public void insertMotmAnswer(MOTM_Answer mAns) {
-        motm_AnswerDAO.insertMotmAnswer(mAns);
+    public void insertMotmAnswer(MOTM_Answer motmAnswer) {
+        motm_AnswerDAO.insertMotmAnswer(motmAnswer);
+
     }
 
     public void updateMsgMotmAns(MOTM_Answer mAns, String msg) {
@@ -33,6 +36,6 @@ public class MOTM_AnswerService {
 
     public ArrayList<MOTM_Answer> getMotmAnswers() {
 
-        return new ArrayList<>(Arrays.asList(new MOTM_Answer("hello", MOTM_Answer.Grade.C, "1", "1")));
+        return new ArrayList<>(Arrays.asList(new MOTM_Answer("message", MOTM_Answer.Grade.A, "test", 1, LocalDate.now(), LocalDate.now())));
     }
 }

@@ -1,4 +1,4 @@
-package io.takima.dao.models;
+package io.takima.ProjectMOTM;
 
 import lombok.*;
 import java.util.Date;
@@ -61,9 +61,20 @@ public class MOTM_Answer {
         this.message = message;
         this.grade = grade;
         this.Employee_id = Employee_id;
-        this.MOTM_id = MOTM_id;
+        if (MOTM_id != null) {
+            this.MOTM_id = MOTM_id;
+        } else
+        {
+            this.MOTM_id = "1";
+        }
         this.created_at = java.time.LocalDate.now();
         this.updated_at = java.time.LocalDate.now();
     }
 
+    public MOTM_Answer() {
+        this.uuid = UUID.randomUUID().toString();
+        this.MOTM_id = "1";
+        this.created_at = java.time.LocalDate.now();
+        this.updated_at = java.time.LocalDate.now();
+    }
 }
